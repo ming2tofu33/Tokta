@@ -2,10 +2,12 @@ import Charts
 import SwiftUI
 
 /// Tokta 창 “전체 계정”. 한 서비스의 계정을 같은 열(구간)로 비교한다. 계정을 숨기거나 “+2”로 줄이지 않는다.
+/// “전체”(기본)는 서비스마다 표를 하나씩 쌓는다. 서비스마다 구간이 달라서 한 표로 합치면 열이 맞지 않는다.
 /// 칸마다 구간 이름과 숫자를 같이 쓰고, 오류·오래된 값·조회 전·해당 없음을 다르게 보여준다(기획서 F4, C).
 struct AccountsTab: View {
     @Environment(UsageStore.self) private var store
     @AppStorage(UsagePalette.storageKey) private var palette: UsagePalette = .indigo
+    /// nil = 전체 서비스
     @State private var service: Service?
     /// nil = 모든 그룹, `ungrouped` = 그룹 없음
     @State private var group: AccountGroup.ID?
@@ -28,14 +30,25 @@ struct AccountsTab: View {
 
     var body: some View {
         TimelineView(.periodic(from: .now, by: 60)) { context in
-            let current = service ?? store.nowPick()?.primary.service ?? store.activeServices.first
+            // 전체에서 그룹으로 거르면 그 그룹에 계정이 없는 서비스는 뺀다.
+            let services = service.map { [$0] } ?? store.activeServices.filter { group == nil || !rows($0, now: context.date).isEmpty }
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    filters(current)
-                    if let current {
+                    filters
+                    ForEach(services) { current in
+                        if service == nil {
+                            HStack(spacing: 8) {
+                                ServiceBadge(service: current, size: 20)
+                                Text(current.displayName).font(.headline)
+                                Text("\(store.accounts(for: current).count)개").font(.caption).foregroundStyle(.secondary)
+                            }
+                            .padding(.top, 4)
+                        }
                         table(current, now: context.date)
+                    }
+                    if !services.isEmpty {
                         DisclosureGroup("오늘 하루 기록") {
-                            DayTimelineView(accounts: rows(current, now: context.date))
+                            DayTimelineView(accounts: services.flatMap { rows($0, now: context.date) })
                                 .padding(.top, 6)
                         }
                         .font(.callout)
@@ -46,9 +59,11 @@ struct AccountsTab: View {
         }
     }
 
-    private func filters(_ current: Service?) -> some View {
+    private var filters: some View {
         HStack(spacing: 12) {
-            Picker("서비스", selection: Binding(get: { current }, set: { service = $0; selected = nil })) {
+            Picker("서비스", selection: Binding(get: { service }, set: { service = $0; selected = nil })) {
+                Text(String(localized: "전체 · \(store.accounts.count)개")).tag(Service?.none)
+                Divider()
                 ForEach(store.activeServices) { service in
                     Text(String(localized: "\(service.displayName) · \(store.accounts(for: service).count)개")).tag(Service?.some(service))
                 }

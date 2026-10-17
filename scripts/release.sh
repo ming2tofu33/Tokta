@@ -1,6 +1,6 @@
 #!/bin/zsh
 # 다른 Mac에 배포할 Tokta를 만든다: Developer ID 서명 → Apple 공증 → 공증표 붙이기 → DMG.
-# 결과는 dist/Tokta-<버전>.dmg. 빌드 번호는 install.sh와 같이 커밋 수.
+# 결과는 dist/Tokta-<버전>.dmg. 빌드 번호는 install.sh와 같이 커밋 수 + 100.
 #
 # 처음 한 번, 공증용 로그인 정보를 키체인에 저장해야 한다(비밀번호는 appleid.apple.com에서 만든 앱 전용 암호):
 #   xcrun notarytool store-credentials tokta-notary --apple-id <Apple ID 이메일> --team-id <팀 ID>
@@ -8,7 +8,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 profile=tokta-notary
-build=$(git rev-list --count HEAD)
+build=$(scripts/build-number.sh)
 work=build/release
 archive="$work/Tokta.xcarchive"
 app="$work/export/Tokta.app"

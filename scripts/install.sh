@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Tokta를 Release로 빌드해 /Applications에 설치하고 실행한다.
-# 빌드 번호는 커밋 수라서, 설정 → 일반의 버전으로 어느 커밋을 설치했는지 알 수 있다.
+# 빌드 번호는 커밋 수 + 100(scripts/build-number.sh). 설정 → 일반의 버전에서 100을 빼면 커밋 수.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -8,10 +8,11 @@ build_dir=build/install
 app="$build_dir/Build/Products/Release/Tokta.app"
 target=/Applications/Tokta.app
 
-echo "▸ 빌드 (빌드 번호 $(git rev-list --count HEAD))"
+build=$(scripts/build-number.sh)
+echo "▸ 빌드 (빌드 번호 $build)"
 xcodebuild -project Tokta.xcodeproj -scheme Tokta -configuration Release \
   -destination "platform=macOS,arch=$(uname -m)" -derivedDataPath "$build_dir" -allowProvisioningUpdates \
-  CURRENT_PROJECT_VERSION="$(git rev-list --count HEAD)" \
+  CURRENT_PROJECT_VERSION="$build" \
   -quiet build
 
 codesign --verify --strict "$app"

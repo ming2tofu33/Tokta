@@ -1,0 +1,4512 @@
+{
+  "sourceLanguage": "ko",
+  "strings": {
+    " · 가장 여유": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · Most room"
+          }
+        }
+      }
+    },
+    " · 서비스에서 가져옴": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · From the service"
+          }
+        }
+      }
+    },
+    " · 확인 필요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · Needs attention"
+          }
+        }
+      }
+    },
+    " — 설치 필요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " — Not installed"
+          }
+        }
+      }
+    },
+    " 남았을 때": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " left"
+          }
+        }
+      }
+    },
+    "%@ %@ %@ · %@ 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@ %3$@ · %4$@ left"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@ %3$@ · %4$@ 남음"
+          }
+        }
+      }
+    },
+    "%@ %@ %@ 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@ %3$@ left"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@ %3$@ 남음"
+          }
+        }
+      }
+    },
+    "%@ %@ (D-%lld)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%2$@ %1$@ (in %3$lld days)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@ (D-%3$lld)"
+          }
+        }
+      }
+    },
+    "%@ %@ 한도가 다시 채워졌어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@ limit is full again"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@ 한도가 다시 채워졌어요"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "%@ %@, %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$@, %3$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$@, %3$@"
+          }
+        }
+      }
+    },
+    "%@ (빌드 %@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ (build %2$@)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ (빌드 %2$@)"
+          }
+        }
+      }
+    },
+    "%@ / %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ / %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ / %2$@"
+          }
+        }
+      }
+    },
+    "%@ Codex 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Codex %@"
+          }
+        }
+      }
+    },
+    "%@ Grok CLI 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Grok CLI %@"
+          }
+        }
+      }
+    },
+    "%@ · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ 값 · 최신이 아닐 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last read %@ · may be out of date"
+          }
+        }
+      }
+    },
+    "%@ 계정 고정 · 빠듯할 때만 다른 계정 제안": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin %@ · suggest another account only when it runs low"
+          }
+        }
+      }
+    },
+    "%@ 계정 맨 위에 고정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin %@ to the top"
+          }
+        }
+      }
+    },
+    "%@ 계정으로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "as %@"
+          }
+        }
+      }
+    },
+    "%@ 계정으로 바꾸기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to %@"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "%@ 계정으로 바꾸기 · %lld%%": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to %1$@ · %2$lld%%"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ 계정으로 바꾸기 · %2$lld%%"
+          }
+        }
+      }
+    },
+    "%@ 계정으로 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open as %@"
+          }
+        }
+      }
+    },
+    "%@ 계정을 열지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't open %@"
+          }
+        }
+      }
+    },
+    "%@ 고정 · 그 안에서 추천 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin %@ · recommend an account within it"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "%@ 구독을 해지하면 한 달 %@을 아껴요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel %1$@ to save %2$@ a month."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ 구독을 해지하면 한 달 %2$@을 아껴요."
+          }
+        }
+      }
+    },
+    "%@ 그대로 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open %@ anyway"
+          }
+        }
+      }
+    },
+    "%@ 로그인 · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ sign-in · %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ 로그인 · %2$@"
+          }
+        }
+      }
+    },
+    "%@ 로그인되면 이 창은 저절로 닫힙니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ This window closes by itself once you're signed in."
+          }
+        }
+      }
+    },
+    "%@ 맨 위에 고정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin %@ to the top"
+          }
+        }
+      }
+    },
+    "%@ 설치돼 있지 않습니다. 설치한 뒤 다시 시도하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ isn't installed. Install it and try again"
+          }
+        }
+      }
+    },
+    "%@ 설치됨": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ installed"
+          }
+        }
+      }
+    },
+    "%@ 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open %@"
+          }
+        }
+      }
+    },
+    "%@ 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ ago"
+          }
+        }
+      }
+    },
+    "%@ 필요해요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needs %@"
+          }
+        }
+      }
+    },
+    "%@ 필요해요. %@.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ is required. %2$@."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ 필요해요. %2$@."
+          }
+        }
+      }
+    },
+    "%@ 후 리셋": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resets in %@"
+          }
+        }
+      }
+    },
+    "%@%@ %@ %@에 자주 바닥나요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ often runs out on %3$@, %4$@."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@%2$@ %3$@ %4$@에 자주 바닥나요."
+          }
+        }
+      }
+    },
+    "%@%@ 거의 쓰지 않았어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ has barely been used."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@%2$@ 거의 쓰지 않았어요."
+          }
+        }
+      }
+    },
+    "%@%@ 꽉 차게 쓰고, %@%@ 거의 쓰지 않았어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ is used to the max, while %3$@ has barely been used."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@%2$@ 꽉 차게 쓰고, %3$@%4$@ 거의 쓰지 않았어요."
+          }
+        }
+      }
+    },
+    "%@%@ 한도를 가장 꽉 채워 쓰고 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ is the one you use the most."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@%2$@ 한도를 가장 꽉 채워 쓰고 있어요."
+          }
+        }
+      }
+    },
+    "%@, 쓴 때 %@": {
+      "localizations": {
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, 쓴 때 %2$@"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@, used %2$@"
+          }
+        }
+      }
+    },
+    "%lld%%": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%%"
+          }
+        }
+      }
+    },
+    "%lld%% 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%% left"
+          }
+        }
+      }
+    },
+    "%lld개": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld"
+          }
+        }
+      }
+    },
+    "%lld번": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld"
+          }
+        }
+      }
+    },
+    "%lld분": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldm"
+          }
+        }
+      }
+    },
+    "%lld분 뒤": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lldm"
+          }
+        }
+      }
+    },
+    "%lld분 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldm ago"
+          }
+        }
+      }
+    },
+    "%lld시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldh"
+          }
+        }
+      }
+    },
+    "%lld시간 %lld분": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lldh %2$lldm"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld시간 %2$lld분"
+          }
+        }
+      }
+    },
+    "%lld시간 %lld분 뒤": {
+      "localizations": {
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld시간 %2$lld분 뒤"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %1$lldh %2$lldm"
+          }
+        }
+      }
+    },
+    "%lld시간 뒤": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lldh"
+          }
+        }
+      }
+    },
+    "%lld시간 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldh ago"
+          }
+        }
+      }
+    },
+    "%lld일": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldd"
+          }
+        }
+      }
+    },
+    "%lld일 %lld시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lldd %2$lldh"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld일 %2$lld시간"
+          }
+        }
+      }
+    },
+    "%lld일 %lld시간 뒤": {
+      "localizations": {
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld일 %2$lld시간 뒤"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %1$lldd %2$lldh"
+          }
+        }
+      }
+    },
+    "%lld일 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldd ago"
+          }
+        }
+      }
+    },
+    ", 리셋 %lld번": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", reset %lld times"
+          }
+        }
+      }
+    },
+    ", 바닥 %lld번": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": ", ran out %lld times"
+          }
+        }
+      }
+    },
+    "1차 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First alert"
+          }
+        }
+      }
+    },
+    "2차 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Second alert"
+          }
+        }
+      }
+    },
+    "5시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5-hour"
+          }
+        }
+      }
+    },
+    "Antigravity (agy 로그인 · Gemini·Claude·GPT 한도)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antigravity (agy sign-in · Gemini, Claude, GPT limits)"
+          }
+        }
+      }
+    },
+    "Antigravity CLI 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Antigravity CLI"
+          }
+        }
+      }
+    },
+    "Antigravity CLI(agy)로 로그인하고 사용량을 읽습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signs in with the Antigravity CLI (agy) and reads usage"
+          }
+        }
+      }
+    },
+    "Antigravity CLI가": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antigravity CLI"
+          }
+        }
+      }
+    },
+    "Antigravity CLI가 응답하지 않습니다. 터미널에서 agy로 로그인했는지 확인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antigravity CLI isn't responding. Check that you're signed in with agy in Terminal"
+          }
+        }
+      }
+    },
+    "Antigravity 사용량 응답에 한도 정보가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Antigravity usage response has no limits"
+          }
+        }
+      }
+    },
+    "Antigravity 사용량을 읽지 못했습니다. 터미널에서 agy로 다시 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read Antigravity usage. Sign in again with agy in Terminal"
+          }
+        }
+      }
+    },
+    "Antigravity 연결": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect Antigravity"
+          }
+        }
+      }
+    },
+    "Antigravity는 이 Mac의 Antigravity CLI(agy) 로그인 하나만 씁니다. 위 ‘이 Mac 로그인 연결’에서 추가하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Antigravity uses this Mac's single Antigravity CLI (agy) sign-in. Add it from “Connect this Mac's sign-in” above."
+          }
+        }
+      }
+    },
+    "ChatGPT (Codex 로그인)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT (Codex sign-in)"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "ChatGPT · Claude · Grok · Cursor · Antigravity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT · Claude · Grok · Cursor · Antigravity"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "ChatGPT 데스크톱 앱": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT desktop app"
+          }
+        }
+      }
+    },
+    "ChatGPT 데스크톱 앱이": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The ChatGPT desktop app"
+          }
+        }
+      }
+    },
+    "ChatGPT 로그인 시간이 지났습니다. 다시 시도하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT sign-in timed out. Try again"
+          }
+        }
+      }
+    },
+    "ChatGPT 로그인이 완료되지 않았습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ChatGPT sign-in didn't finish"
+          }
+        }
+      }
+    },
+    "ChatGPT 연결": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect ChatGPT"
+          }
+        }
+      }
+    },
+    "Claude 계정 정보를 읽지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read the Claude account"
+          }
+        }
+      }
+    },
+    "Claude 로그인": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in to Claude"
+          }
+        }
+      }
+    },
+    "Claude 보안 확인이 필요합니다. 로그인 창을 열어주세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude needs a security check. Open the sign-in window"
+          }
+        }
+      }
+    },
+    "Claude 사용량 응답 형식이 바뀌었습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Claude usage response has changed"
+          }
+        }
+      }
+    },
+    "Claude 사용량 응답에 한도 정보가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Claude usage response has no limits"
+          }
+        }
+      }
+    },
+    "Claude 응답 오류 (HTTP %lld)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude response error (HTTP %lld)"
+          }
+        }
+      }
+    },
+    "Claude 조직 정보를 읽지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read the Claude organization"
+          }
+        }
+      }
+    },
+    "Claude 조회 제한입니다. 잠시 후 다시 확인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude is rate limiting. Check again in a moment"
+          }
+        }
+      }
+    },
+    "Claude·Cursor는 결제일을 서비스에서 가져옵니다(금액은 직접 입력). Claude Team처럼 조직이 한 번에 내는 구독은 결제 정보를 볼 수 있는 관리자 계정의 결제일을 같은 조직 계정들이 같이 쓰고, **금액은 한 계정에만** 적으세요. 매년 결제는 12로 나눠 더하고, 통화가 다르면 환율 없이 따로 합칩니다. 결제 전날 오전 9시에 알림을 보냅니다(설정 → 알림).": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude and Cursor billing dates come from the service (enter the price yourself). For subscriptions an organization pays once, like Claude Team, accounts in the same organization share the date from the admin account that can see billing — **enter the price on one account only**. Yearly plans count as 1/12 per month, and different currencies are totaled separately without conversion. A reminder goes out at 9 AM the day before (Settings → Alerts)."
+          }
+        }
+      }
+    },
+    "Claude는 계정에 로그인하고, ChatGPT·Grok은 이 Mac의 Codex·Grok CLI 로그인을 씁니다.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude signs in per account. ChatGPT and Grok use this Mac's Codex and Grok CLI sign-ins."
+          }
+        }
+      }
+    },
+    "Codex %lld분": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex %lld-minute"
+          }
+        }
+      }
+    },
+    "Codex %lld시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex %lld-hour"
+          }
+        }
+      }
+    },
+    "Codex %lld일": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex %lld-day"
+          }
+        }
+      }
+    },
+    "Codex 5시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex 5-hour"
+          }
+        }
+      }
+    },
+    "Codex 로그인 주소를 확인할 수 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't get the Codex sign-in address"
+          }
+        }
+      }
+    },
+    "Codex 로그인을 시작하지 못했습니다. Codex를 최신 버전으로 업데이트하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't start Codex sign-in. Update Codex to the latest version"
+          }
+        }
+      }
+    },
+    "Codex 조회에 실패했습니다 (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex request failed (%@)"
+          }
+        }
+      }
+    },
+    "Codex 주간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex weekly"
+          }
+        }
+      }
+    },
+    "Codex 한도 정보가 응답에 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Codex response has no limits"
+          }
+        }
+      }
+    },
+    "Codex가 응답하지 않습니다. 버전과 로그인 상태를 확인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex isn't responding. Check its version and sign-in"
+          }
+        }
+      }
+    },
+    "Codex에 ChatGPT 계정으로 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in to Codex with a ChatGPT account"
+          }
+        }
+      }
+    },
+    "Cursor 모델": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cursor models"
+          }
+        }
+      }
+    },
+    "Cursor 사용량 응답에 한도 정보가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Cursor usage response has no limits"
+          }
+        }
+      }
+    },
+    "Cursor 응답 오류 (HTTP %lld)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cursor response error (HTTP %lld)"
+          }
+        }
+      }
+    },
+    "Cursor 응답 형식이 바뀌었습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Cursor response has changed"
+          }
+        }
+      }
+    },
+    "Cursor 조회 제한입니다. 잠시 후 다시 확인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cursor is rate limiting. Check again in a moment"
+          }
+        }
+      }
+    },
+    "Google 로그인은 앱 안 창에서 막혀요. 처음으로 돌아가서 GitHub이나 같은 Gmail 주소의 이메일 로그인을 쓰세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google sign-in is blocked inside app windows. Go back and use GitHub, or email sign-in with the same Gmail address."
+          }
+        }
+      }
+    },
+    "Google 로그인은 앱 안 창에서 막혀요. 처음으로 돌아가서 같은 Gmail 주소를 입력하고 ‘이메일로 계속하기’를 고르세요. 같은 Claude 계정으로 로그인됩니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Google sign-in is blocked inside app windows. Go back, enter the same Gmail address, and choose “Continue with email”. You'll sign in to the same Claude account."
+          }
+        }
+      }
+    },
+    "Google 로그인이 막히면 GitHub이나 이메일로 로그인하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If Google sign-in is blocked, use GitHub or email."
+          }
+        }
+      }
+    },
+    "Google 로그인이 막히면 같은 이메일로 ‘이메일로 계속하기’를 선택하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If Google sign-in is blocked, choose “Continue with email” with the same address."
+          }
+        }
+      }
+    },
+    "Grok (Grok CLI 로그인)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok (Grok CLI sign-in)"
+          }
+        }
+      }
+    },
+    "Grok Bot 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Grok Bot"
+          }
+        }
+      }
+    },
+    "Grok Bot은 Cursor 회사 앱이라 Cursor 계정을 추가하면 저절로 생깁니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok Bot is made by Cursor, so it appears by itself when you add a Cursor account."
+          }
+        }
+      }
+    },
+    "Grok CLI가": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok CLI"
+          }
+        }
+      }
+    },
+    "Grok CLI로 로그인하고 사용량을 읽습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signs in with the Grok CLI and reads usage"
+          }
+        }
+      }
+    },
+    "Grok 로그인이 만료됐습니다. 다시 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok sign-in expired. Sign in again"
+          }
+        }
+      }
+    },
+    "Grok 로그인이 완료되지 않았습니다. 다시 시도하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok sign-in didn't finish. Try again"
+          }
+        }
+      }
+    },
+    "Grok 사용량 서버 오류 (HTTP %lld)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grok usage server error (HTTP %lld)"
+          }
+        }
+      }
+    },
+    "Grok 사용량 응답 형식이 바뀌었습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Grok usage response has changed"
+          }
+        }
+      }
+    },
+    "Grok 사용량 응답에 한도 정보가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Grok usage response has no limits"
+          }
+        }
+      }
+    },
+    "Grok 연결": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect Grok"
+          }
+        }
+      }
+    },
+    "Tokta": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta"
+          }
+        }
+      }
+    },
+    "Tokta 창에서 로그인 · Google 계정은 ‘이메일로 계속하기’": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in in a Tokta window · for Google accounts use ‘Continue with email’"
+          }
+        }
+      }
+    },
+    "Tokta 창에서 로그인 · Grok Bot 한도도 함께 보여요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in in a Tokta window · Grok Bot limits show up too"
+          }
+        }
+      }
+    },
+    "Tokta 창에서 로그인합니다. Google 로그인은 막히니 GitHub이나 이메일 로그인을 쓰세요. Grok Bot 한도가 있으면 Grok Bot 줄이 저절로 생깁니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in in a Tokta window. Google sign-in is blocked, so use GitHub or email. If the account has a Grok Bot limit, a Grok Bot row appears by itself."
+          }
+        }
+      }
+    },
+    "Tokta 창에서 로그인합니다. Google로 가입한 계정은 Google 버튼 대신 같은 Gmail 주소로 ‘이메일로 계속하기’를 쓰세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in in a Tokta window. For accounts made with Google, use “Continue with email” with the same Gmail address instead of the Google button."
+          }
+        }
+      }
+    },
+    "Tokta, 한도 거의 다 씀": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta, limit almost used up"
+          }
+        }
+      }
+    },
+    "Tokta, 한도 얼마 안 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta, limit running low"
+          }
+        }
+      }
+    },
+    "Tokta가 본 것": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What Tokta noticed"
+          }
+        }
+      }
+    },
+    "iPhone": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone"
+          }
+        }
+      }
+    },
+    "iPhone Tokta 앱이 보내요. 맥이 꺼져 있어도 다시 찼어요·내일 결제가 와요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta on iPhone sends them. Refilled and Renews tomorrow arrive even when the Mac is off."
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "iPhone 알림은 맥이 iCloud에 올린 뒤 iPhone Tokta가 받아서 보냅니다(몇 분 걸릴 수 있어요). 오지 않으면 iPhone 설정 → 알림에서 Tokta를 허용하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone alerts go up to iCloud from this Mac, then Tokta on iPhone sends them (this can take a few minutes). If nothing arrives, allow Tokta in iPhone Settings → Notifications."
+          }
+        }
+      }
+    },
+    "iPhone 앱 없이 이 맥에서만 받아요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only on this Mac, no iPhone app needed."
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "iPhone으로 받으면 맥이 정한 알림을 iCloud로 넘겨 iPhone Tokta가 보냅니다. 다시 찼어요·내일 결제는 미리 예약돼서 맥이 꺼져 있어도 옵니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "With iPhone, this Mac passes its alerts through iCloud and Tokta on iPhone sends them. Refilled and Renews tomorrow are scheduled ahead, so they arrive even when the Mac is off."
+          }
+        }
+      }
+    },
+    "· 고정한 %@는 지금 쓸 계정 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· Pinned %@ has no usable account right now"
+          }
+        }
+      }
+    },
+    "–": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "–"
+          }
+        }
+      }
+    },
+    "→ %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "→ %@"
+          }
+        }
+      }
+    },
+    "→ %@ 계정은 %@ 남았어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "→ %1$@ has %2$@ left"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "→ %1$@ 계정은 %2$@ 남았어요"
+          }
+        }
+      }
+    },
+    "⌘↩": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "⌘↩"
+          }
+        }
+      }
+    },
+    "같은 계정에 여유 있는 다른 계정이 있으면 알림에 함께 알려줍니다. 메뉴바 아이콘도 1차 기준 아래면 주황, 2차 기준 아래면 빨강이 됩니다.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If another account of the same service has room, the alert mentions it. The menu bar icon also turns to the warning color below the first threshold and the danger color below the second."
+          }
+        }
+      }
+    },
+    "같은 서비스 계정 중 남은 한도가 가장 많아요 · 눌러서 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most limit left in this service · %@ (click)"
+          }
+        }
+      }
+    },
+    "같은 서비스 계정 중 남은 한도가 가장 많음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most limit left in this service"
+          }
+        }
+      }
+    },
+    "개인 Cursor 플랜 한도를 확인할 수 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't find a personal Cursor plan limit"
+          }
+        }
+      }
+    },
+    "개인 Grok 계정으로 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in with a personal Grok account"
+          }
+        }
+      }
+    },
+    "거의 안 쓰는 구독": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barely used"
+          }
+        }
+      }
+    },
+    "결제": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renews"
+          }
+        }
+      }
+    },
+    "결제일": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Billing date"
+          }
+        }
+      }
+    },
+    "결제일을 %@에서 가져오기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get the billing date from %@"
+          }
+        }
+      }
+    },
+    "계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accounts"
+          }
+        }
+      }
+    },
+    "계정 %lld개": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld accounts"
+          }
+        }
+      }
+    },
+    "계정 고정 · 빠듯할 때만 다른 계정 제안": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin account · suggest another only when it runs low"
+          }
+        }
+      }
+    },
+    "계정 바꾸기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch account"
+          }
+        }
+      }
+    },
+    "계정 삭제": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete account"
+          }
+        }
+      }
+    },
+    "계정 연결": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect account"
+          }
+        }
+      }
+    },
+    "고정 풀기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpin"
+          }
+        }
+      }
+    },
+    "고정 풀기 · 마지막으로 연 서비스": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpin · last opened service"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "고정은 그대로 두고 이번만 %@ 계정으로 엽니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keeps the pin and opens %@ just this once"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "고정한 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinned account"
+          }
+        }
+      }
+    },
+    "곧": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "soon"
+          }
+        }
+      }
+    },
+    "곧 리셋": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resets soon"
+          }
+        }
+      }
+    },
+    "곧 바닥나요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Running low"
+          }
+        }
+      }
+    },
+    "곧 바닥나요 · 다시 찼어요 · 내일 결제, 세 가지만 보내요.\n나중에 설정 → 알림에서 바꿀 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only three kinds: Running low · Refilled · Renews tomorrow.\nYou can change this later in Settings → Alerts."
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "곧 바닥나요: 기준 아래로 내려가거나 이 속도면 1시간 안에 바닥날 때, 한 주기에 한 번만. 다시 찼어요: 곧 바닥나요가 왔던 한도가 리셋될 때. 내일 결제: 구독 결제 전날 오전 9시.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Running low: when a limit drops below the threshold or would run out within an hour at this pace, once per cycle. Refilled: when a limit that ran low resets. Renews tomorrow: 9 AM the day before a subscription renews."
+          }
+        }
+      }
+    },
+    "구독": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions"
+          }
+        }
+      }
+    },
+    "구독 %lld개에 %@.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%2$@ across %1$lld subscriptions."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "구독 %1$lld개에 %2$@."
+          }
+        }
+      }
+    },
+    "구독 가치": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscription value"
+          }
+        }
+      }
+    },
+    "구독 결제 전날 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind the day before a subscription renews"
+          }
+        }
+      }
+    },
+    "구독 기간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Billing period"
+          }
+        }
+      }
+    },
+    "구독 종료": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ends"
+          }
+        }
+      }
+    },
+    "그때는 %@%@ 바꿔 쓰면 돼요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to %1$@ around then."
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "그때는 %1$@%2$@ 바꿔 쓰면 돼요."
+          }
+        }
+      }
+    },
+    "그래파이트": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Graphite"
+          }
+        }
+      }
+    },
+    "그룹": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Groups"
+          }
+        }
+      }
+    },
+    "그룹 삭제 (계정은 남습니다)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete group (accounts stay)"
+          }
+        }
+      }
+    },
+    "그룹 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No group"
+          }
+        }
+      }
+    },
+    "그룹 이름": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Group name"
+          }
+        }
+      }
+    },
+    "그룹이 없으면 메뉴에 서비스별로 보입니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Without groups, the menu groups accounts by service"
+          }
+        }
+      }
+    },
+    "금액": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Price"
+          }
+        }
+      }
+    },
+    "기록 모으는 중": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collecting data"
+          }
+        }
+      }
+    },
+    "기록 모으는 중 · %lld일째": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collecting data · day %lld"
+          }
+        }
+      }
+    },
+    "기록을 모으는 중이에요. 며칠 쓰면 여기서 이번 달을 정리해 드려요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collecting your usage. After a few days, this is where your month gets summed up."
+          }
+        }
+      }
+    },
+    "기본": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Default"
+          }
+        }
+      }
+    },
+    "기준": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Threshold"
+          }
+        }
+      }
+    },
+    "기타 모델": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Other models"
+          }
+        }
+      }
+    },
+    "꽉 차게 씀": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Used to the max"
+          }
+        }
+      }
+    },
+    "끄기": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Off"
+          }
+        }
+      }
+    },
+    "나중에 설정 → 계정에서 바꿀 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can change this later in Settings → Accounts"
+          }
+        }
+      }
+    },
+    "낮았던 한도가 다시 채워지면 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alert when a low limit refills"
+          }
+        }
+      }
+    },
+    "내일 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ tomorrow"
+          }
+        }
+      }
+    },
+    "내일 %@ 결제 예정 (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renews tomorrow for %1$@ (%2$@)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "내일 %1$@ 결제 예정 (%2$@)"
+          }
+        }
+      }
+    },
+    "내일 결제": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renews tomorrow"
+          }
+        }
+      }
+    },
+    "내일 결제 예정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renews tomorrow"
+          }
+        }
+      }
+    },
+    "년": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "yr"
+          }
+        }
+      }
+    },
+    "눌러서 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (click)"
+          }
+        }
+      }
+    },
+    "다 썼거나, 값이 오래됐거나, 확인이 필요한 계정뿐이에요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every account is used up, out of date, or needs attention"
+          }
+        }
+      }
+    },
+    "다 썼어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Used up"
+          }
+        }
+      }
+    },
+    "다 썼어요 · %@ 뒤 다시 쓸 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Used up · available again in %@"
+          }
+        }
+      }
+    },
+    "다른 계정이 이미 로그인돼 있으면 그 계정으로 연결될 수 있어요. 로그아웃하거나 시크릿 창에서 로그인하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If another account is already signed in, it may connect to that one instead. Sign out first, or sign in from a private window."
+          }
+        }
+      }
+    },
+    "다시 로그인": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in again"
+          }
+        }
+      }
+    },
+    "다시 찼어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refilled"
+          }
+        }
+      }
+    },
+    "다운로드": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download"
+          }
+        }
+      }
+    },
+    "다음 — 알림 받을 곳": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next — where alerts go"
+          }
+        }
+      }
+    },
+    "다음 결제": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next payment"
+          }
+        }
+      }
+    },
+    "다음 결제일: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next billing date: %@"
+          }
+        }
+      }
+    },
+    "다음: %@ · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next: %1$@ · %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "다음: %1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "다음은 ": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next: "
+          }
+        }
+      }
+    },
+    "둘 다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Both"
+          }
+        }
+      }
+    },
+    "로그인": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in"
+          }
+        }
+      }
+    },
+    "로그인 시 Tokta 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Tokta at login"
+          }
+        }
+      }
+    },
+    "로그인 정보는 이 Mac에만 남고, Tokta는 남은 한도만 읽어요.\n계정이 여러 개면 하나씩 더 추가할 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign-ins stay on this Mac, and Tokta only reads what's left.\nHave several accounts? Add them one by one."
+          }
+        }
+      }
+    },
+    "로그인 주소 복사 (시크릿 창에 붙여넣기)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Copy sign-in link (paste into a private window)"
+          }
+        }
+      }
+    },
+    "로그인 항목 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Login Items"
+          }
+        }
+      }
+    },
+    "로그인 항목을 바꾸지 못했습니다: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't change the login item: %@"
+          }
+        }
+      }
+    },
+    "로그인된 계정(%@)이 이 계정의 이메일과 다릅니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The signed-in account (%@) doesn't match this account's email"
+          }
+        }
+      }
+    },
+    "로그인이 필요합니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign-in required"
+          }
+        }
+      }
+    },
+    "리셋": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset"
+          }
+        }
+      }
+    },
+    "매년": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
+        }
+      }
+    },
+    "매월": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        }
+      }
+    },
+    "맥과 iPhone에 하나씩 와요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One on the Mac and one on iPhone."
+          }
+        }
+      }
+    },
+    "맨 위 카드": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Top card"
+          }
+        }
+      }
+    },
+    "맨 위 카드 고정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin the top card"
+          }
+        }
+      }
+    },
+    "메뉴 맨 위 카드에 크게 보여줄 것입니다. 계정을 고정하면 그 계정이 알림 기준선 아래로 내려가거나 1시간 안에 바닥날 것 같을 때만 같은 서비스의 다른 계정을 제안합니다. 카드의 핀이나 아래 줄 오른쪽 클릭으로도 바꿀 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What the top of the menu shows large. If you pin an account, another account of the same service is suggested only when it drops below the alert threshold or looks set to run out within an hour. You can also change this with the card's pin or by right-clicking a row below."
+          }
+        }
+      }
+    },
+    "메뉴바 아이콘을 캐릭터로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use the character as the menu bar icon"
+          }
+        }
+      }
+    },
+    "메뉴바에 남은 양 표시": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show remaining amount in the menu bar"
+          }
+        }
+      }
+    },
+    "모두 쓰고 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All in use"
+          }
+        }
+      }
+    },
+    "모든 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All accounts"
+          }
+        }
+      }
+    },
+    "바닥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ran out"
+          }
+        }
+      }
+    },
+    "바닥나는 때": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When it runs out"
+          }
+        }
+      }
+    },
+    "받은 한도 중 쓴 만큼": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "how much of each limit you use"
+          }
+        }
+      }
+    },
+    "받을 곳": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send to"
+          }
+        }
+      }
+    },
+    "방금": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Just now"
+          }
+        }
+      }
+    },
+    "버전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Version"
+          }
+        }
+      }
+    },
+    "별칭": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nickname"
+          }
+        }
+      }
+    },
+    "브라우저에서 %@ 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open %@ in browser"
+          }
+        }
+      }
+    },
+    "브라우저에서 **추가할 %@ 계정**으로 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In the browser, sign in with **the %@ account you are adding**"
+          }
+        }
+      }
+    },
+    "브라우저에서 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open in browser"
+          }
+        }
+      }
+    },
+    "사용": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Used"
+          }
+        }
+      }
+    },
+    "사용 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not started"
+          }
+        }
+      }
+    },
+    "사용량 색": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usage colors"
+          }
+        }
+      }
+    },
+    "사용량 페이지": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usage page"
+          }
+        }
+      }
+    },
+    "사용량 페이지 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open usage page"
+          }
+        }
+      }
+    },
+    "사용할 Claude 조직을 고를 수 없습니다. 로그인 창에서 조직을 한 번 열어주세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't pick a Claude organization. Open the organization once in the sign-in window"
+          }
+        }
+      }
+    },
+    "새 그룹 이름 (예: 회사, 개인)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New group name (e.g. Work, Personal)"
+          }
+        }
+      }
+    },
+    "서비스": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Service"
+          }
+        }
+      }
+    },
+    "서비스 고정 · 그 안에서 추천 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin service · recommend an account within it"
+          }
+        }
+      }
+    },
+    "서비스마다 가장 여유 있는 계정을 고르고, 그중 가장 빠듯한 서비스의 남은 %를 아이콘 옆에 보여줍니다. 아이콘 색과 같은 기준입니다. 캐릭터로 바꾸면 화면이 찬 높이와 표정(^_^ •_• >_< -_-)으로 보여줍니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Takes the roomiest account of each service and shows the tightest of those as a % next to the icon, using the same levels as the icon color. As a character, the screen's fill and its face (^_^ •_• >_< -_-) show it instead."
+          }
+        }
+      }
+    },
+    "설정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        }
+      }
+    },
+    "설정 → 구독에서 금액을 적어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add prices in Settings → Subscriptions"
+          }
+        }
+      }
+    },
+    "설정 → 구독에서 입력한 구독료의 월 합계": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly total of the prices entered in Settings → Subscriptions"
+          }
+        }
+      }
+    },
+    "설정…": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings…"
+          }
+        }
+      }
+    },
+    "설치 →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Install →"
+          }
+        }
+      }
+    },
+    "소진 예측은 최근 사용 속도(5시간 한도는 최근 1시간, 그 밖은 최근 하루)로 계산하고 주기마다 한 번만 알립니다. 리셋 알림은 기준선 아래로 내려갔던 구간만, 리셋 시각에 맞춰 보냅니다.": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Run-out forecasts use recent pace (the last hour for 5-hour limits, the last day otherwise) and alert once per cycle. Refill alerts go out at reset time, only for windows that dropped below a threshold."
+          }
+        }
+      }
+    },
+    "수정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        }
+      }
+    },
+    "시각": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Time"
+          }
+        }
+      }
+    },
+    "시스템 설정에서 Tokta를 허용해야 합니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Allow Tokta in System Settings."
+          }
+        }
+      }
+    },
+    "시작하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get started"
+          }
+        }
+      }
+    },
+    "쓰는 AI 구독을 연결해요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect your AI subscriptions"
+          }
+        }
+      }
+    },
+    "쓴 때": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In use"
+          }
+        }
+      }
+    },
+    "아낄 수 있는 것": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Possible savings"
+          }
+        }
+      }
+    },
+    "아직 가져온 결제일이 없습니다. 다음 새로고침 때 가져옵니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No billing date fetched yet. It'll be fetched on the next refresh."
+          }
+        }
+      }
+    },
+    "아직 계정이 없어요": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No accounts yet"
+          }
+        }
+      }
+    },
+    "아직 눈에 띄는 것이 없어요. 기록이 쌓이면 언제 바닥나는지, 아낄 수 있는 구독이 있는지 알려드려요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing stands out yet. As data builds up, Tokta will tell you when limits run out and which subscriptions you could drop."
+          }
+        }
+      }
+    },
+    "아직 못 읽었어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not read yet"
+          }
+        }
+      }
+    },
+    "아직 지원하지 않는 서비스입니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This service isn't supported yet"
+          }
+        }
+      }
+    },
+    "알림": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerts"
+          }
+        }
+      }
+    },
+    "알림은 어디서 받을까요?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where should alerts go?"
+          }
+        }
+      }
+    },
+    "알림이 오지 않으면 시스템 설정 → 알림에서 Tokta를 허용하세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If alerts don't arrive, allow Tokta in System Settings → Notifications."
+          }
+        }
+      }
+    },
+    "알림이 이렇게 보입니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerts look like this"
+          }
+        }
+      }
+    },
+    "앱 안에 들어 있는 Codex로 로그인하고 사용량을 읽습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Signs in and reads usage with the Codex inside the app"
+          }
+        }
+      }
+    },
+    "언제 썼고, 언제 막혔고, 언제 다시 찼는지": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "When you used it, ran out, and refilled"
+          }
+        }
+      }
+    },
+    "여유 있게 씀": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plenty left"
+          }
+        }
+      }
+    },
+    "연결 →": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect →"
+          }
+        }
+      }
+    },
+    "연결된 Cursor 계정이 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No linked Cursor account"
+          }
+        }
+      }
+    },
+    "연결됨": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "연결됨: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected: %@"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "연결하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        }
+      }
+    },
+    "오늘 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ today"
+          }
+        }
+      }
+    },
+    "오늘 기록이 아직 없어요. 계정을 읽을 때마다 쌓여요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing recorded today yet. It fills in each time Tokta reads your accounts."
+          }
+        }
+      }
+    },
+    "오늘 하루": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today"
+          }
+        }
+      }
+    },
+    "왼쪽부터 50% 넘음 · 알림 기준선까지 · 알림 기준선 아래 · 위험 기준선 아래. 메뉴 막대와 메뉴바 아이콘 경고 색이 같이 바뀝니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "From left: over 50% · down to the alert threshold · below it · below the danger threshold. Menu bars and the menu bar icon's warning colors change together."
+          }
+        }
+      }
+    },
+    "월": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "mo"
+          }
+        }
+      }
+    },
+    "월 구독 %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly %@"
+          }
+        }
+      }
+    },
+    "월 합계": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly total"
+          }
+        }
+      }
+    },
+    "위치": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Location"
+          }
+        }
+      }
+    },
+    "응용 프로그램 폴더에 설치한 Tokta에서 켜세요. 지금 실행 중인 앱은 Xcode 빌드입니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn this on from the Tokta installed in Applications. The app running now is an Xcode build."
+          }
+        }
+      }
+    },
+    "이 Cursor 계정에는 Grok Bot 한도가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Cursor account has no Grok Bot limit"
+          }
+        }
+      }
+    },
+    "이 Mac 로그인 연결": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect this Mac's sign-in"
+          }
+        }
+      }
+    },
+    "이 Mac의 Antigravity(agy) 로그인 하나만 써요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uses this Mac's single Antigravity (agy) sign-in"
+          }
+        }
+      }
+    },
+    "이 Mac의 Codex 로그인을 그대로 써요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uses this Mac's Codex sign-in"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "이 Mac의 Grok CLI 로그인을 그대로 써요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uses this Mac's Grok CLI sign-in"
+          }
+        }
+      }
+    },
+    "이 Mac의 Grok CLI에 로그인돼 있지 않습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Grok CLI on this Mac isn't signed in"
+          }
+        }
+      }
+    },
+    "이 계정 로그인으로 터미널에서 실행합니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Runs in Terminal with this account's sign-in."
+          }
+        }
+      }
+    },
+    "이 계정으로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "as this account"
+          }
+        }
+      }
+    },
+    "이 계정으로 로그인된 창을 Tokta에서 엽니다. 브라우저 로그인은 바꾸지 않아요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opens a Tokta window signed in as this account. Your browser sign-in stays as is."
+          }
+        }
+      }
+    },
+    "이 맥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Mac"
+          }
+        }
+      }
+    },
+    "이 속도면 %@ 뒤 바닥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Runs out in %@ at this pace"
+          }
+        }
+      }
+    },
+    "이 속도면 %@쯤 바닥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Runs out around %@ at this pace"
+          }
+        }
+      }
+    },
+    "이 속도면 1시간 안에 바닥날 때 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alert when a limit will run out within an hour at this pace"
+          }
+        }
+      }
+    },
+    "이 속도면 곧 바닥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Runs out soon at this pace"
+          }
+        }
+      }
+    },
+    "이름": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        }
+      }
+    },
+    "이름 (예: 회사, 개인)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name (e.g. Work, Personal)"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "이름 없는 그룹": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Untitled group"
+          }
+        }
+      }
+    },
+    "이름 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Untitled"
+          }
+        }
+      }
+    },
+    "이름을 눌러 바꾸고, 끌어서 메뉴 순서를 바꿉니다. 다른 그룹으로 옮기려면 오른쪽에서 그룹을 고르세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Click a name to rename it and drag to reorder the menu. To move an account to another group, choose the group on the right."
+          }
+        }
+      }
+    },
+    "이름을 눌러 바꾸고, 끌어서 메뉴에 보이는 순서를 바꿀 수 있습니다. 계정은 계정 탭에서 그룹에 넣으세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Click a name to rename it and drag to change the menu order. Put accounts into groups from the Accounts tab."
+          }
+        }
+      }
+    },
+    "이메일 (선택)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email (optional)"
+          }
+        }
+      }
+    },
+    "이미 추가된 계정(%@)과 같은 계정입니다. 다른 계정으로 다시 로그인하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This is the same account as %@, which is already added. Sign in again with a different account"
+          }
+        }
+      }
+    },
+    "이번 달 ": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This month "
+          }
+        }
+      }
+    },
+    "이번 달 %lld번 바닥": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ran out %lld times this month"
+          }
+        }
+      }
+    },
+    "이번 달 구독료": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions this month"
+          }
+        }
+      }
+    },
+    "이번 달 기록과 구독 가치 (⌘O)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This month's usage and subscription value (⌘O)"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "이번 달 보기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This month"
+          }
+        }
+      }
+    },
+    "이번 달부터 세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Counting from this month"
+          }
+        }
+      }
+    },
+    "이번 주기 사용 추이": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Usage this cycle"
+          }
+        }
+      }
+    },
+    "이전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back"
+          }
+        }
+      }
+    },
+    "인디고": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indigo"
+          }
+        }
+      }
+    },
+    "일반": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General"
+          }
+        }
+      }
+    },
+    "일일": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily"
+          }
+        }
+      }
+    },
+    "입력": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        }
+      }
+    },
+    "입력한 구독료가 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No prices entered"
+          }
+        }
+      }
+    },
+    "자동 (마지막으로 연 서비스)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatic (last opened service)"
+          }
+        }
+      }
+    },
+    "자세히 보기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show details"
+          }
+        }
+      }
+    },
+    "저장": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        }
+      }
+    },
+    "접기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collapse"
+          }
+        }
+      }
+    },
+    "접힘": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collapsed"
+          }
+        }
+      }
+    },
+    "조회 중 로그인 계정이 바뀌었습니다. 다시 새로고침하세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The signed-in account changed while reading. Refresh again"
+          }
+        }
+      }
+    },
+    "종료": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quit"
+          }
+        }
+      }
+    },
+    "주간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly"
+          }
+        }
+      }
+    },
+    "주간 · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly · %@"
+          }
+        }
+      }
+    },
+    "주간 · Fable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly · Fable"
+          }
+        }
+      }
+    },
+    "주간 · Opus": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly · Opus"
+          }
+        }
+      }
+    },
+    "주간 · Sonnet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly · Sonnet"
+          }
+        }
+      }
+    },
+    "주기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cycle"
+          }
+        }
+      }
+    },
+    "지금 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Now %@"
+          }
+        }
+      }
+    },
+    "지금 새로고침": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh now"
+          }
+        }
+      }
+    },
+    "지금 쓸 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use now"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "지금 쓸 계정 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No account to use now"
+          }
+        }
+      }
+    },
+    "지금은 %@ 계정을 쓰세요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use %@ for now"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "지난 결제일이나 다음 결제일 중 아무 날이나 하나 넣으면 됩니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter either the last or the next billing date."
+          }
+        }
+      }
+    },
+    "지난달과 같아요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Same as last month"
+          }
+        }
+      }
+    },
+    "지난달보다 %lld번 많아요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld more than last month"
+          }
+        }
+      }
+    },
+    "지난달보다 %lld번 적어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld fewer than last month"
+          }
+        }
+      }
+    },
+    "지우기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove"
+          }
+        }
+      }
+    },
+    "지원하지 않는 서비스: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unsupported service: %@"
+          }
+        }
+      }
+    },
+    "차분한 신호등": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muted signal"
+          }
+        }
+      }
+    },
+    "처음으로 돌아가기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back to start"
+          }
+        }
+      }
+    },
+    "체험": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trial"
+          }
+        }
+      }
+    },
+    "최근 %lld일 거의 안 씀": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Barely used in the last %lld days"
+          }
+        }
+      }
+    },
+    "추가": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        }
+      }
+    },
+    "추가한 계정이 없습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No accounts added"
+          }
+        }
+      }
+    },
+    "취소": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "쿨에서 웜으로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cool to warm"
+          }
+        }
+      }
+    },
+    "터미널을 열지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't open Terminal"
+          }
+        }
+      }
+    },
+    "테스트 알림 보내기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send test alert"
+          }
+        }
+      }
+    },
+    "통화": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Currency"
+          }
+        }
+      }
+    },
+    "페이지 새로고침 (⌘R)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reload page (⌘R)"
+          }
+        }
+      }
+    },
+    "페이지 응답을 읽지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't read the page response"
+          }
+        }
+      }
+    },
+    "펼침": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expanded"
+          }
+        }
+      }
+    },
+    "평소 쓰는 브라우저가 열립니다. 추가할 계정으로 로그인하세요. 브라우저에 다른 계정이 이미 로그인돼 있으면 그 계정으로 연결될 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your usual browser opens. Sign in with the account you're adding. If another account is already signed in there, it may connect to that one instead."
+          }
+        }
+      }
+    },
+    "플랜": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Plan"
+          }
+        }
+      }
+    },
+    "필요한 프로그램을 찾지 못했습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't find the required app"
+          }
+        }
+      }
+    },
+    "하나 더": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add another"
+          }
+        }
+      }
+    },
+    "한도 리셋 %lld회 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld limit resets left"
+          }
+        }
+      }
+    },
+    "한도가 바닥난 횟수": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Times limits ran out"
+          }
+        }
+      }
+    },
+    "한도가 얼마 안 남으면 알림": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alert when a limit runs low"
+          }
+        }
+      }
+    },
+    "한도를 다 써도 바로 초기화할 수 있는 남은 횟수": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "How many times you can reset the limit right away after using it up"
+          }
+        }
+      }
+    },
+    "한도를 무리 없이 고르게 쓰고 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You're using your limits evenly."
+          }
+        }
+      }
+    },
+    "확인 필요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needs attention"
+          }
+        }
+      }
+    },
+    "확인이 필요한 계정이 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some accounts need attention"
+          }
+        }
+      }
+    },
+    " · 이 계정도 빠듯해요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · this one is tight too"
+          }
+        }
+      }
+    },
+    "%@ %lld%% 남음 — 이제 메뉴바에서 바로 볼 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ has %2$lld%% left — you can now check it from the menu bar"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ %2$lld%% 남음 — 이제 메뉴바에서 바로 볼 수 있어요"
+          }
+        }
+      }
+    },
+    "%@ · %lld개": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ · %2$lld"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ · %2$lld개"
+          }
+        }
+      }
+    },
+    "%@ 고정 · 그 안에서 최근 연 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin %@ · use the account you opened last"
+          }
+        }
+      }
+    },
+    "%@ 남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ left"
+          }
+        }
+      }
+    },
+    "%@ 한도 리셋 예정 시각이에요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ limit is scheduled to reset now"
+          }
+        }
+      }
+    },
+    "%@ 확인": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checked %@"
+          }
+        }
+      }
+    },
+    "%@%@ 차도 %@ 한도 때문에 계속 제한될 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Even after %1$@ resets, the %3$@ limit may keep you blocked"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@%2$@ 차도 %3$@ 한도 때문에 계속 제한될 수 있어요"
+          }
+        }
+      }
+    },
+    "%@/%@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@/%2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@/%2$@"
+          }
+        }
+      }
+    },
+    "%@에 확인 (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checked %1$@ (%2$@)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@에 확인 (%2$@)"
+          }
+        }
+      }
+    },
+    "ChatGPT 계정의 Codex 한도 · 이 Mac의 Codex 로그인을 그대로 써요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex limits of your ChatGPT account · uses this Mac's Codex sign-in"
+          }
+        }
+      }
+    },
+    "Claude · Codex · Cursor · Grok · Antigravity": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude · Codex · Cursor · Grok · Antigravity"
+          }
+        }
+      }
+    },
+    "Codex (ChatGPT 계정 로그인)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Codex (ChatGPT account sign-in)"
+          }
+        }
+      }
+    },
+    "iPhone Tokta 앱이 iCloud로 받아서 보내요. 몇 분 늦을 수 있어요. 설정 → 알림의 테스트 알림으로 먼저 확인해 보세요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta on iPhone receives them through iCloud and sends them. They can be a few minutes late. Try a test alert first in Settings → Alerts."
+          }
+        }
+      }
+    },
+    "· %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· %@"
+          }
+        }
+      }
+    },
+    "· %@ 리셋 (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· resets %1$@ (%2$@)"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "· %1$@ 리셋 (%2$@)"
+          }
+        }
+      }
+    },
+    "· 이전 값": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "· earlier value"
+          }
+        }
+      }
+    },
+    "—": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
+          }
+        }
+      }
+    },
+    "같은 그룹의 %@ 계정이 더 여유 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ in the same group has more room"
+          }
+        }
+      }
+    },
+    "계정 %lld": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account %lld"
+          }
+        }
+      }
+    },
+    "계정 하나를 연결해 남은 한도를 처음 읽어 오면 넘어갈 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect one account and read its limits once to continue"
+          }
+        }
+      }
+    },
+    "계정을 같은 열로 비교 (⌘O)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compare accounts side by side (⌘O)"
+          }
+        }
+      }
+    },
+    "고정 풀기 · 최근 연 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpin · use the account you opened last"
+          }
+        }
+      }
+    },
+    "곧 바닥나요 · 다시 찼어요 · 내일 결제, 세 가지만 보내요.\niPhone 앱이 없어도 돼요. 나중에 설정 → 알림에서 바꿀 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only three kinds: Running low · Refilled · Renews tomorrow.\nNo iPhone app needed. You can change this later in Settings → Alerts."
+          }
+        }
+      }
+    },
+    "구간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Window"
+          }
+        }
+      }
+    },
+    "기준 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Base account"
+          }
+        }
+      }
+    },
+    "나중에": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Later"
+          }
+        }
+      }
+    },
+    "남음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Left"
+          }
+        }
+      }
+    },
+    "내 순서": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My order"
+          }
+        }
+      }
+    },
+    "다른 서비스": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Other services"
+          }
+        }
+      }
+    },
+    "다시 시도": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try again"
+          }
+        }
+      }
+    },
+    "로그인을 기다려요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for sign-in"
+          }
+        }
+      }
+    },
+    "로봇": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Robot"
+          }
+        }
+      }
+    },
+    "리셋 빠른 순": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resets soonest"
+          }
+        }
+      }
+    },
+    "맥 창": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac window"
+          }
+        }
+      }
+    },
+    "머그컵": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mug"
+          }
+        }
+      }
+    },
+    "메뉴, 위젯, iPhone, 메뉴바 아이콘에 같은 캐릭터가 나옵니다. 어떤 캐릭터든 차오른 높이가 남은 한도, 얼굴이 상태예요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The same character appears in the menu, widgets, iPhone and menu bar icon. For every character, how full it is shows what's left, and its face shows how things are going."
+          }
+        }
+      }
+    },
+    "모든 그룹": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All groups"
+          }
+        }
+      }
+    },
+    "물약": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potion"
+          }
+        }
+      }
+    },
+    "바로 받아요. iPhone 앱이 없어도 돼요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Arrives right away. No iPhone app needed."
+          }
+        }
+      }
+    },
+    "배터리": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Battery"
+          }
+        }
+      }
+    },
+    "보기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View"
+          }
+        }
+      }
+    },
+    "새로고침": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh"
+          }
+        }
+      }
+    },
+    "슬라임": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Slime"
+          }
+        }
+      }
+    },
+    "여유 많은 순": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most room"
+          }
+        }
+      }
+    },
+    "열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open"
+          }
+        }
+      }
+    },
+    "오늘 하루 기록": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Today's log"
+          }
+        }
+      }
+    },
+    "이 그룹에는 계정이 없어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No accounts in this group"
+          }
+        }
+      }
+    },
+    "이 맥 (추천)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Mac (recommended)"
+          }
+        }
+      }
+    },
+    "이번 달": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This month"
+          }
+        }
+      }
+    },
+    "이번에 %@ 계정으로 엽니다. 자동으로 바꾸지는 않아요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opens with %@ this time. Tokta never switches on its own"
+          }
+        }
+      }
+    },
+    "전체 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All accounts"
+          }
+        }
+      }
+    },
+    "정렬": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sort"
+          }
+        }
+      }
+    },
+    "조회 전": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not read yet"
+          }
+        }
+      }
+    },
+    "지금은 %@ 계정을 쓸 수 있어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ is usable right now"
+          }
+        }
+      }
+    },
+    "처음 읽는 중": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reading for the first time"
+          }
+        }
+      }
+    },
+    "최근 연 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opened last"
+          }
+        }
+      }
+    },
+    "칩": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chip"
+          }
+        }
+      }
+    },
+    "캐릭터": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Character"
+          }
+        }
+      }
+    },
+    "한도": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limit"
+          }
+        }
+      }
+    },
+    "해당 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "N/A"
+          }
+        }
+      }
+    },
+    "확인": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Checked"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

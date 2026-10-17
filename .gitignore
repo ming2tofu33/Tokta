@@ -1,0 +1,11 @@
+.DS_Store
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+vault/.obsidian/
+vault/.trash/
+dist/
+Config/Local.xcconfig
+# sprites.py로 다시 만드는 그림
+design/pixel-character-v5/sprites/

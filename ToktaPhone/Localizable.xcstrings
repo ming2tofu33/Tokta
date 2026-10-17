@@ -1,0 +1,554 @@
+{
+  "sourceLanguage": "ko",
+  "strings": {
+    "%@ 뒤 · %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In %1$@ · %2$@"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ 뒤 · %2$@"
+          }
+        }
+      }
+    },
+    "%@ 후 리셋": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resets in %@"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "%lld%%": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%%"
+          }
+        }
+      }
+    },
+    "%lld분": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldm"
+          }
+        }
+      }
+    },
+    "%lld분 뒤": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lldm"
+          }
+        }
+      }
+    },
+    "%lld시간 %lld분": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lldh %2$lldm"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld시간 %2$lld분"
+          }
+        }
+      }
+    },
+    "%lld시간 %lld분 뒤": {
+      "localizations": {
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld시간 %2$lld분 뒤"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %1$lldh %2$lldm"
+          }
+        }
+      }
+    },
+    "%lld시간 뒤": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %lldh"
+          }
+        }
+      }
+    },
+    "%lld일": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lldd"
+          }
+        }
+      }
+    },
+    "%lld일 %lld시간": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lldd %2$lldh"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld일 %2$lld시간"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "%lld일 %lld시간 뒤": {
+      "localizations": {
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld일 %2$lld시간 뒤"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "in %1$lldd %2$lldh"
+          }
+        }
+      }
+    },
+    "Tokta": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tokta"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "—": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "—"
+          }
+        }
+      }
+    },
+    "→ %@": {
+      "extractionState": "stale",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "→ %@"
+          }
+        }
+      }
+    },
+    "가장 여유: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Most room: %@"
+          }
+        }
+      }
+    },
+    "계정을 누르면 그 서비스를 열어요. 어느 계정으로 열지는 iPhone에서 고를 수 없어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap an account to open the service. On iPhone you can't choose which account it opens with."
+          }
+        }
+      }
+    },
+    "그래파이트": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Graphite"
+          }
+        }
+      }
+    },
+    "다 씀": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Used up"
+          }
+        }
+      }
+    },
+    "다시 받기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fetch again"
+          }
+        }
+      }
+    },
+    "다음에 다시 차는 것": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refilling next"
+          }
+        }
+      }
+    },
+    "리셋돼서 다시 찼을 거예요 (추정)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Should be full again after the reset (estimate)"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "막대 위부터 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bars top to bottom: %@"
+          }
+        }
+      }
+    },
+    "맥과 같게": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Same as Mac"
+          }
+        }
+      }
+    },
+    "맥과 같게 (%@)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Same as Mac (%@)"
+          }
+        }
+      }
+    },
+    "맥에서 %@ 전에 받은 값": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "From your Mac %@ ago"
+          }
+        }
+      }
+    },
+    "맥의 Tokta(응용 프로그램 폴더에 설치한 앱)가 켜져 있고 같은 iCloud 계정이면 몇 분 안에 보여요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "It shows up within a few minutes when Tokta on your Mac (the one in Applications) is running on the same iCloud account."
+          }
+        }
+      }
+    },
+    "맥이 꺼져 있거나 잠자기 중이에요. 리셋 시각이 지난 한도는 다시 찼다고 추정해서 보여줘요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your Mac is off or asleep. Limits past their reset time are shown as full again (estimate)."
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "맥이 꺼져 있거나 잠자기 중이에요. 맥이 켜지면 새 값이 와요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your Mac is off or asleep. New values arrive when it wakes up."
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "색 조합": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Colors"
+          }
+        }
+      }
+    },
+    "아직 받은 값이 없어요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nothing received yet"
+          }
+        }
+      }
+    },
+    "알림은 이 iPhone으로 와요. 켜고 끄기와 받을 곳은 맥 Tokta 설정 → 알림에서 바꿔요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerts come to this iPhone. Turn them on or off and choose where they go in Tokta on your Mac → Settings → Alerts."
+          }
+        }
+      }
+    },
+    "알림은 지금 맥에서만 와요. 맥 Tokta 설정 → 알림에서 iPhone으로 바꿀 수 있어요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alerts only go to the Mac right now. Switch to iPhone in Tokta on your Mac → Settings → Alerts."
+          }
+        }
+      }
+    },
+    "인디고": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indigo"
+          }
+        }
+      }
+    },
+    "지금 %lld%%": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld%% now"
+          }
+        }
+      }
+    },
+    "지금 쓸 계정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use now"
+          }
+        }
+      },
+      "extractionState": "stale"
+    },
+    "지금 쓸 계정 없음": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No account to use now"
+          }
+        }
+      }
+    },
+    "차분한 신호등": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muted signal"
+          }
+        }
+      }
+    },
+    "추정": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Estimate"
+          }
+        }
+      }
+    },
+    "쿨에서 웜으로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cool to warm"
+          }
+        }
+      }
+    },
+    "한도": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Limit"
+          }
+        }
+      }
+    },
+    "계정 현황": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accounts"
+          }
+        }
+      }
+    },
+    "로봇": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Robot"
+          }
+        }
+      }
+    },
+    "맥 창": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mac window"
+          }
+        }
+      }
+    },
+    "머그컵": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mug"
+          }
+        }
+      }
+    },
+    "물약": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potion"
+          }
+        }
+      }
+    },
+    "배터리": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Battery"
+          }
+        }
+      }
+    },
+    "새 값이 아직 도착하지 않았어요. 리셋 예정 시각이 지난 한도는 “확인 필요”로 보여줘요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New values haven't arrived yet. Limits past their reset time show as “Check needed”."
+          }
+        }
+      }
+    },
+    "새 값이 아직 도착하지 않았어요. 맥의 Tokta가 새로 읽으면 iCloud로 와요.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New values haven't arrived yet. They come through iCloud when Tokta on your Mac reads again."
+          }
+        }
+      }
+    },
+    "슬라임": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Slime"
+          }
+        }
+      }
+    },
+    "칩": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chip"
+          }
+        }
+      }
+    },
+    "확인 필요": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Check needed"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

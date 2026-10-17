@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <title>Tokta menu bar token</title>
+  <defs><mask id="cuts"><rect width="18" height="18" fill="white"/><path d="M9 9L17 17" stroke="black" stroke-width="2.2" stroke-linecap="round"/><path d="M10.35 11.25V18" stroke="black" stroke-width="1.35"/></mask></defs>
+  <circle cx="9" cy="9" r="8" fill="black" mask="url(#cuts)"/>
+</svg>

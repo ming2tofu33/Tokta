@@ -1,0 +1,15 @@
+// 서명 팀과 앱 식별자. 모든 타깃이 이 파일을 기본 설정으로 쓴다.
+// 포크해서 빌드한다면 Config/Local.example.xcconfig를 Config/Local.xcconfig로 복사하고 자기 값을 적는다.
+
+DEVELOPMENT_TEAM =
+TOKTA_BUNDLE_PREFIX = app.tokta
+
+// 앱과 위젯 확장이 같이 쓰는 App Group. 맥은 팀 ID로, iPhone은 group.으로 시작한다.
+// 팀이 없으면(포크해서 처음 빌드할 때) local을 써서 앱은 돌아간다. 위젯·iCloud는 팀이 있어야 한다.
+TOKTA_APP_GROUP[sdk=macosx*] = $(DEVELOPMENT_TEAM:default=local).$(TOKTA_BUNDLE_PREFIX).shared
+TOKTA_APP_GROUP[sdk=iphone*] = group.$(TOKTA_BUNDLE_PREFIX).shared
+
+// 맥이 읽은 값을 iPhone으로 보내는 iCloud(CloudKit) 컨테이너.
+TOKTA_ICLOUD_CONTAINER = iCloud.$(TOKTA_BUNDLE_PREFIX)
+
+#include? "Local.xcconfig"

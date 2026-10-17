@@ -18,7 +18,7 @@ Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 �
 - **그룹.** 회사·개인처럼 직접 이름 붙인 그룹으로 계정을 묶어요.
 - **사용 기록과 소진 예측.** 계정마다 얼마나 빨리 줄고 있는지 보여줘요.
 - **구독 관리.** 얼마를 내는지, 언제 결제되는지 기록해요.
-- **위젯과 iPhone 앱.** Mac 데스크톱 위젯, 그리고 내 iCloud로 동기화되는 iPhone 앱과 위젯이 있어요.
+- **위젯과 iPhone 앱.** Mac 데스크톱 위젯, 그리고 내 iCloud로 동기화되는 iPhone 앱과 위젯이 있어요. iPhone 앱은 아직 App Store에 없어서 지금은 [직접 빌드](#iphone)해야 해요.
 - **한국어와 영어.**
 
 ## 지원 서비스
@@ -36,11 +36,29 @@ Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 �
 
 ## 설치
 
-**macOS 15** 이상이 필요해요. iPhone 앱은 **iOS 18** 이상이에요.
+### Mac
 
-1. [Releases](../../releases)에서 최신 `Tokta-x.y.z.dmg`를 받아요.
+**macOS 15** 이상이 필요해요.
+
+1. [Releases](../../releases)에서 최신 `Tokta-x.y.z.dmg`를 받아요. Apple 서명과 공증을 받은 파일이에요.
 2. Tokta를 응용 프로그램 폴더로 끌어다 놓고 열어요. Tokta는 메뉴바에 있고 Dock 아이콘은 없어요.
 3. **설정 → 계정**에서 계정을 추가해요.
+
+### iPhone
+
+iPhone 앱과 위젯은 Mac이 읽은 값을 내 iCloud로 받아서 보여줘요. 아직 App Store나 TestFlight에 없어서, 지금은 직접 빌드해야 해요.
+
+- Apple Developer 계정, Xcode, **iOS 18** 이상 iPhone이 필요해요.
+- **Mac 앱과 iPhone 앱을 둘 다 같은 팀으로 직접 빌드해야 해요.** 동기화는 팀에 속한 iCloud 컨테이너로 이뤄져서, Releases에서 받은 Mac 앱은 직접 빌드한 iPhone 앱과 연결되지 않아요.
+- 두 기기 모두 같은 Apple ID로 iCloud에 로그인돼 있어야 해요.
+
+순서:
+
+1. [직접 빌드하기](#직접-빌드하기)대로 `Config/Local.xcconfig`에 팀 ID와 식별자 앞부분을 적어요.
+2. `scripts/install.sh`로 Mac 앱을 빌드해서 설치해요. iCloud 동기화는 Release 빌드에서만 켜져서, Xcode에서 Debug로 실행한 Mac 앱은 동기화되지 않아요.
+3. Xcode에서 **ToktaPhone** 스킴을 iPhone에 실행해요.
+
+자동 서명을 쓰면 처음 빌드할 때 Xcode가 App ID, App Group, iCloud 컨테이너(`iCloud.<내 식별자 앞부분>`)를 등록해 줘요. 안 되면 Apple Developer 포털에서 직접 추가해요.
 
 ## 데이터는 어디에 있나요
 

@@ -18,7 +18,7 @@ Tokta shows how much is left on each of your AI subscriptions — Claude, Codex 
 - **Groups.** Organize accounts into your own groups, such as Work and Personal.
 - **Usage history and forecasts.** See how fast each account is burning down.
 - **Subscriptions.** Track what you pay and when each plan renews.
-- **Widgets and iPhone app.** Desktop widgets on the Mac, and an iPhone app and widgets synced through your own iCloud.
+- **Widgets and iPhone app.** Desktop widgets on the Mac, and an iPhone app and widgets synced through your own iCloud. The iPhone app isn't on the App Store yet, so you have to [build it yourself](#iphone) for now.
 - **English and Korean.**
 
 ## Supported services
@@ -36,11 +36,29 @@ None of these services offers an official usage API for consumer plans, so **any
 
 ## Install
 
-Requires **macOS 15** or later. The iPhone app requires **iOS 18**.
+### Mac
 
-1. Download the latest `Tokta-x.y.z.dmg` from [Releases](../../releases).
+Requires **macOS 15** or later.
+
+1. Download the latest `Tokta-x.y.z.dmg` from [Releases](../../releases). It is signed and notarized by Apple.
 2. Drag Tokta into Applications and open it. Tokta lives in the menu bar and has no Dock icon.
 3. Add accounts in **Settings → Accounts**.
+
+### iPhone
+
+The iPhone app and its widgets show what your Mac reads, synced through your own iCloud. It isn't on the App Store or TestFlight yet, so for now you need to build it yourself:
+
+- An Apple Developer account, Xcode, and an iPhone on **iOS 18** or later.
+- **Build both the Mac app and the iPhone app yourself, with the same team.** Sync uses an iCloud container that belongs to your team, so the Mac app from Releases can't talk to an iPhone app you built.
+- The same Apple ID signed in to iCloud on both devices.
+
+Steps:
+
+1. Set up `Config/Local.xcconfig` with your team ID and bundle prefix, as described in [Build from source](#build-from-source).
+2. Run `scripts/install.sh` to build and install the Mac app. iCloud sync is only enabled in Release builds, so a Debug build run from Xcode won't sync.
+3. In Xcode, run the **ToktaPhone** scheme on your iPhone.
+
+With automatic signing, Xcode registers the App IDs, App Group and iCloud container (`iCloud.<your prefix>`) the first time you build. If it doesn't, add them in the Apple Developer portal.
 
 ## Where your data lives
 

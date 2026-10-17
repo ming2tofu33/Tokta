@@ -1,0 +1,43 @@
+name: Service broke
+description: A service stopped showing usage, or shows wrong numbers
+labels: ["service broke"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Never paste tokens, cookies, emails or account IDs.** If you share a response, replace every value with a placeholder first.
+  - type: dropdown
+    id: service
+    attributes:
+      label: Service
+      options:
+        - Claude
+        - Codex (ChatGPT)
+        - Grok
+        - Cursor
+        - Grok Bot
+        - Antigravity
+    validations:
+      required: true
+  - type: input
+    id: plan
+    attributes:
+      label: Plan
+      placeholder: e.g. Claude Max, ChatGPT Plus, SuperGrok
+  - type: textarea
+    id: message
+    attributes:
+      label: What the card shows
+      description: The exact error or the wrong number, and what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: response
+    attributes:
+      label: Response shape (optional, values removed)
+      render: json
+  - type: input
+    id: version
+    attributes:
+      label: Tokta version
+      description: Settings → General shows the version and build.

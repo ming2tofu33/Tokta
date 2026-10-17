@@ -1,0 +1,19 @@
+name: Bug
+description: Something in Tokta itself doesn't work
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tokta version
+      description: Settings → General shows the version and build.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS or iOS version

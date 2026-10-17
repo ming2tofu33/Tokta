@@ -77,6 +77,8 @@ No Apple Developer account? Skip `Local.xcconfig` and just run the scheme. The M
 
 ## Contributing
 
+Tokta is a personal project maintained in spare time, so replies may take a while. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to report a broken service, run the tests and add a service or character. Report security problems privately as described in [SECURITY.md](SECURITY.md).
+
 Issues and pull requests are welcome, especially:
 
 - **A service broke.** Include the service, your plan and the exact error shown on the card.

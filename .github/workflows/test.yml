@@ -1,0 +1,37 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mac:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      # The project is made with Xcode 27. Use it when the runner has it, otherwise the newest Xcode there.
+      - name: Pick Xcode
+        run: |
+          xcode=$(ls -d /Applications/Xcode_27*.app 2>/dev/null | sort -V | tail -1 || true)
+          [ -z "$xcode" ] && xcode=$(ls -d /Applications/Xcode_*.app | sort -V | tail -1)
+          sudo xcode-select -s "$xcode/Contents/Developer"
+          xcodebuild -version
+
+      # No team and no signing: the Mac app and its tests run without an Apple developer account.
+      # The tests check Korean text, so they run in Korean.
+      - name: Test
+        run: |
+          xcodebuild test \
+            -project Tokta.xcodeproj -scheme Tokta -destination 'platform=macOS' \
+            -testLanguage ko -testRegion KR \
+            CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= \
+            | tee xcodebuild.log | grep -E "error:|✘|Test run with|\*\* TEST" || true
+          grep -q "\*\* TEST SUCCEEDED \*\*" xcodebuild.log

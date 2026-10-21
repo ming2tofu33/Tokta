@@ -286,15 +286,15 @@ private struct AccountDetail: View {
             (window, (store.history.series[UsageHistory.key(account.id, window.id)] ?? []).filter { now.timeIntervalSince($0.t) <= 7 * 86400 })
         }.filter { $0.1.count > 1 }
         if !series.isEmpty {
-            Chart {
-                ForEach(series, id: \.0.id) { window, samples in
-                    ForEach(Array(segments(samples).enumerated()), id: \.offset) { index, segment in
-                        ForEach(segment, id: \.t) { sample in
-                            LineMark(x: .value("시각", sample.t), y: .value("남음", 1 - sample.u), series: .value("구간", "\(window.id)-\(index)"))
-                                .foregroundStyle(by: .value("구간", window.title))
-                        }
-                    }
+            // 점을 미리 한 줄로 펴 둔다. 중첩 ForEach 안의 LineMark는 컴파일러가 타입을 늦게 풀어서 Xcode에 따라 빌드가 실패했다.
+            let points: [TrendPoint] = series.flatMap { window, samples in
+                segments(samples).enumerated().flatMap { index, segment in
+                    segment.map { TrendPoint(time: $0.t, remaining: 1 - $0.u, line: "\(window.id)-\(index)", title: window.title) }
                 }
+            }
+            Chart(points) { point in
+                LineMark(x: .value("시각", point.time), y: .value("남음", point.remaining), series: .value("구간", point.line))
+                    .foregroundStyle(by: .value("구간", point.title))
             }
             .chartYScale(domain: 0...1)
             .chartYAxis { AxisMarks(values: [0, 0.5, 1]) { AxisValueLabel(format: FloatingPointFormatStyle<Double>.Percent()) ; AxisGridLine() } }
@@ -314,4 +314,13 @@ private struct AccountDetail: View {
         }
         return result
     }
+}
+
+/// 추이 선의 점 하나. `line`이 같은 점끼리 선으로 잇는다(1시간 넘게 빈 곳은 다른 줄).
+private struct TrendPoint: Identifiable {
+    let time: Date
+    let remaining: Double
+    let line: String
+    let title: String
+    var id: String { "\(line)-\(time.timeIntervalSinceReferenceDate)" }
 }

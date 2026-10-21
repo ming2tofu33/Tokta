@@ -11,12 +11,13 @@ Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 �
 ## 기능
 
 - **서비스마다 여러 계정.** 회사 Claude, 개인 Claude, 팀원 좌석까지 계정마다 따로 로그인하고 따로 추적해요.
-- **"지금 쓰기" 카드.** 계정마다 가장 빠듯한 한도를 비교해서 가장 여유 있는 계정을 추천해요.
-- **픽셀 캐릭터.** 메뉴바에 사는 16×16 작은 Mac 창이에요. 한도가 차오르면 화면이 빛으로 차고, 표정으로 상태를 알려줘요.
-- **알림.** 한도가 빠듯할 때, 1시간 안에 다 쓸 것 같을 때, 리셋돼서 다시 찼을 때 알려줘요.
+- **"지금 쓰기" 카드.** 쓰고 있는 계정을 그대로 보여주다가, 그 계정이 빠듯하거나 막혔을 때만 같은 서비스·같은 그룹에서 더 여유 있는 계정을 제안해요.
+- **픽셀 캐릭터.** Mac 창, 배터리, 칩, 머그컵, 물약, 슬라임, 로봇 중에서 16×16 캐릭터를 골라요. 한도가 차오르면 몸이 빛으로 차고, 표정으로 상태를 알려줘요. 메뉴와 위젯에 나오고, 원하면 메뉴바에도 띄울 수 있어요.
+- **알림.** 한도가 빠듯하거나 1시간 안에 다 쓸 것 같을 때, 리셋 예정 시각이 됐을 때, 구독 결제 전날에 알려줘요.
 - **한 번에 열기.** 추천 계정이 로그인된 창(Claude, Cursor)이나 CLI 터미널(Codex, Grok)을 바로 열어요.
 - **그룹.** 회사·개인처럼 직접 이름 붙인 그룹으로 계정을 묶어요.
 - **사용 기록과 소진 예측.** 계정마다 얼마나 빨리 줄고 있는지 보여줘요.
+- **Tokta 창.** 모든 계정을 정렬해서 보는 목록, 오늘 하루 타임라인, 이번 달에 쓰고 낸 것을 한 창에서 봐요.
 - **구독 관리.** 얼마를 내는지, 언제 결제되는지 기록해요.
 - **위젯과 iPhone 앱.** Mac 데스크톱 위젯, 그리고 내 iCloud로 동기화되는 iPhone 앱과 위젯이 있어요. iPhone 앱은 아직 App Store에 없어서 지금은 [직접 빌드](#iphone)해야 해요.
 - **한국어와 영어.**
@@ -26,7 +27,7 @@ Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 �
 | 서비스 | 여러 계정 | 사용량을 읽는 방법 | 필요한 것 |
 |---|---|---|---|
 | Claude | 지원 | 계정별 웹 로그인 | — |
-| Codex (ChatGPT) | 지원 | ChatGPT 요금제의 Codex 한도를 ChatGPT 데스크톱 앱에 들어 있는 Codex로 읽기 | [ChatGPT 데스크톱 앱](https://openai.com/chatgpt/download/) |
+| Codex (ChatGPT) | 지원 | ChatGPT 요금제의 Codex 한도를 ChatGPT 데스크톱 앱에 들어 있는 Codex로 읽기 | [ChatGPT 데스크톱 앱](https://openai.com/chatgpt/download/) 또는 Codex CLI |
 | Grok | 지원 | Grok CLI 로그인과 xAI 사용량 API | [Grok CLI](https://x.ai/build) |
 | Cursor | 지원 | 계정별 cursor.com 로그인 | — |
 | Grok Bot | Cursor 계정을 따라감 | 연결된 Cursor 로그인 | — |

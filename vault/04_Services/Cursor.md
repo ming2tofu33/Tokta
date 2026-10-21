@@ -34,7 +34,7 @@ tags:
 | **Grok Bot 주간** / Grok Bot 체험 | `get-sand-usage-status`의 `usagePercent` | `nextResetTimestampUtc` (체험은 없음) |
 
 - 플랜 이름은 `membershipType`(예: Ultra).
-- `billingCycleEnd`는 다음 결제일로도 쓴다(월 구독 기준, 연 구독이면 다를 수 있음). 2026-10-13 실제 계정에서 10월 17일.
+- `billingCycleEnd`는 다음 결제일로도 쓴다(월 구독 기준, 연 구독이면 다를 수 있음). 2026-10-13 실제 계정에서 다음 결제일과 맞음을 확인.
 - 팀 플랜·꺼진 플랜은 거부한다(개인 플랜만).
 - **Grok Bot**: `/Applications/Grok Bot.app`(번들 ID `com.anysphere.sand`)은 Cursor 회사(Anysphere)가 만든 앱이고 한도도 Cursor 계정에 붙어 있다. 포함 한도가 있으면(`includedLimitZero == false`, 옛 응답은 `hasNonZeroIncludedLimit`) “주간”, 없고 체험 기간이면 “체험”, 둘 다 아니면 표시하지 않는다. xAI의 [[Grok]] 구독 한도와는 별개다.
 - Grok Bot 조회가 실패해도 Cursor 숫자는 보여준다.

@@ -11,12 +11,13 @@ Tokta shows how much is left on each of your AI subscriptions — Claude, Codex 
 ## Features
 
 - **Many accounts per service.** A work Claude, a personal Claude, a teammate's seat — each signs in separately and is tracked on its own.
-- **"Use this now" card.** Compares every account's tightest limit and recommends the one with the most room.
-- **Pixel character.** A 16×16 little Mac window in your menu bar. Its screen fills with light as your limits refill, and its face tells you how things are going.
-- **Alerts.** Running low, about to run out within the hour, and back after a reset.
+- **"Use this now" card.** Sticks with the account you're using, and suggests a roomier account from the same service and group only when yours is running low or blocked.
+- **Pixel characters.** Pick from seven 16×16 characters: a Mac window, battery, chip, mug, potion, slime or robot. Each one fills with light as your limits refill, and its face tells you how things are going. It shows up in the menu, the widgets and, if you like, the menu bar.
+- **Alerts.** When a limit is running low or will run out within the hour, when its reset time arrives, and the day before a subscription renews.
 - **Open in one click.** Opens the recommended account's signed-in window (Claude, Cursor) or CLI terminal (Codex, Grok).
 - **Groups.** Organize accounts into your own groups, such as Work and Personal.
 - **Usage history and forecasts.** See how fast each account is burning down.
+- **Tokta window.** All accounts in one sortable list, today's timeline, and a monthly view of what you used and paid.
 - **Subscriptions.** Track what you pay and when each plan renews.
 - **Widgets and iPhone app.** Desktop widgets on the Mac, and an iPhone app and widgets synced through your own iCloud. The iPhone app isn't on the App Store yet, so you have to [build it yourself](#iphone) for now.
 - **English and Korean.**
@@ -26,7 +27,7 @@ Tokta shows how much is left on each of your AI subscriptions — Claude, Codex 
 | Service | Multiple accounts | How Tokta reads usage | Needs |
 |---|---|---|---|
 | Claude | Yes | Per-account web sign-in | — |
-| Codex (ChatGPT) | Yes | The Codex limit of your ChatGPT plan, via the Codex bundled with the ChatGPT desktop app | [ChatGPT desktop app](https://openai.com/chatgpt/download/) |
+| Codex (ChatGPT) | Yes | The Codex limit of your ChatGPT plan, via the Codex bundled with the ChatGPT desktop app | [ChatGPT desktop app](https://openai.com/chatgpt/download/) or the Codex CLI |
 | Grok | Yes | Grok CLI sign-in and the xAI usage API | [Grok CLI](https://x.ai/build) |
 | Cursor | Yes | Per-account cursor.com sign-in | — |
 | Grok Bot | Follows your Cursor accounts | Your linked Cursor sign-in | — |

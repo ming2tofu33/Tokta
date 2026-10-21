@@ -64,7 +64,7 @@ Claude 구독 한도. claude.ai, 데스크톱 앱, Claude Code가 이 한도를 
 | 2026-10-13 | — | AI-Tracker `electron/claude-accounts.js`의 해석 규칙을 옮김 | 키 방식과 `limits` 배열 방식 둘 다 읽음. `resets_at` 소수점 자릿수가 일정하지 않아 초 단위로 자름 |
 | 2026-10-13 | 본인 | 사용자 로그인 후 앱 표시 | 실제 응답 원문은 아직 기록하지 않음 |
 | 2026-10-13 | 본인 5계정(같은 Team 조직) | 역할·응답 코드만 출력 | 소유자(`owner`·`primary_owner`)만 200, 일반 멤버(`user`)는 403 `permission_error`. 멤버는 같은 조직 소유자 계정 값을 쓴다 |
-| 2026-10-13 | 본인 2계정 | `subscription_details` 항목 이름만 출력해 확인 | `next_charge_date: "2026-11-10"`, `next_charge_at`, `billing_interval: "monthly"`, `currency: "USD"`, `status: "active"`, `plan_ending_at`, `payment_method`(읽지 않음). `/subscription`은 405, `/billing`은 404 |
+| 2026-10-13 | 본인 2계정 | `subscription_details` 항목 이름만 출력해 확인 | `next_charge_date: "YYYY-MM-DD"`, `next_charge_at`, `billing_interval: "monthly"`, `currency: "USD"`, `status: "active"`, `plan_ending_at`, `payment_method`(읽지 않음). `/subscription`은 405, `/billing`은 404 |
 
 테스트: `ClaudeParsingTests`.
 

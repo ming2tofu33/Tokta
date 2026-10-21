@@ -40,7 +40,7 @@ Tokta = **Tok**en + Quo**ta**. AI 구독의 남은 한도와 리셋 시각을 �
 - **소진 예측:** 사용 기록으로 “이 속도면 언제 바닥”을 보여주고 1시간 안이면 알린다. [[2026-10-13 사용 기록과 소진 예측]]
 - **구독 관리:** 계정마다 구독료·결제일, 월 합계, 결제 전날 알림. [[2026-10-13 구독료와 결제일 관리]]
 - **설치:** `./scripts/install.sh`로 `/Applications`에 설치, 설정에서 로그인 시 열기. [[빌드와 서명#설치해서 쓰기]]
-- **코드:** `~/Projects/Tokta` (SwiftUI, macOS 15+). 비공개 저장소 `ming2tofu33/Tokta`.
+- **코드:** `~/Projects/Tokta` (SwiftUI, macOS 15+). 저장소 `ming2tofu33/Tokta` (MIT 공개).
 
 ## 남은 일부터 보기
 

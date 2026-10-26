@@ -83,6 +83,7 @@ struct AccountRow: View {
         .padding(.vertical, 5)
         .background(background, in: RoundedRectangle(cornerRadius: 6))
         .onHover { isHovering = $0 }
+        .motion(.easeOut(duration: 0.15), value: isHovering)
     }
 
     /// 추천은 메뉴 맨 위 카드가 맡아서 줄은 칠하지 않는다. 마우스를 올리거나 펼쳤을 때만.
@@ -113,6 +114,7 @@ struct AccountRow: View {
                     Text("\(Int((summary.remaining * 100).rounded()))%")
                         .font(.callout.monospacedDigit())
                         .foregroundStyle(palette.textStyle(for: summary.level))
+                        .rollingNumber(summary.remaining)
                         .frame(width: 36, alignment: .trailing)
                 }
                 .opacity(isStale ? 0.45 : 1)
@@ -294,6 +296,7 @@ struct MiniBars: View {
                         Capsule()
                             .fill(palette.color(for: BarTone(remaining: window.remaining, settings: settings)))
                             .frame(width: proxy.size.width * window.remaining)
+                            .motion(.smooth(duration: 0.6), value: window.remaining)
                     }
                 }
                 .frame(height: windows.count > 2 ? 3 : 4)

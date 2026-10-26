@@ -198,6 +198,7 @@ struct AccountsTab: View {
                     Text("\(Int((window.remaining * 100).rounded()))%")
                         .font(.callout.weight(.semibold).monospacedDigit())
                         .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: window.remaining, settings: store.alertSettings)))
+                        .rollingNumber(window.remaining)
                     Text(stale ? String(localized: "· 이전 값") : window.resetsAt.map { "· " + ResetText.string(until: $0, now: now) } ?? "")
                         .font(.caption2).foregroundStyle(.secondary).lineLimit(1)
                 }
@@ -206,6 +207,7 @@ struct AccountsTab: View {
                         Capsule().fill(.quaternary)
                         Capsule().fill(palette.color(for: BarTone(remaining: window.remaining, settings: store.alertSettings)))
                             .frame(width: proxy.size.width * window.remaining)
+                            .motion(.smooth(duration: 0.6), value: window.remaining)
                     }
                 }
                 .frame(height: 4)

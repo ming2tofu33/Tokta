@@ -50,6 +50,8 @@ struct MenuContentView: View {
                 Task { await store.refreshAll() }
             } label: {
                 Image(systemName: "arrow.clockwise")
+                    // 읽는 동안 돈다.
+                    .symbolEffect(.rotate, options: .repeat(.continuous), isActive: store.isRefreshing)
             }
             .buttonStyle(.borderless)
             .disabled(store.isRefreshing)

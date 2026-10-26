@@ -25,8 +25,9 @@ struct NowCard: View {
             }
         }
         .padding(12)
-        .background(Self.fill, in: RoundedRectangle(cornerRadius: 12))
-        .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(.separator.opacity(0.6)))
+        .card(radius: 14, tint: palette.color(for: .plenty))
+        // 다른 계정으로 바뀌면 부드럽게 넘어간다.
+        .motion(value: pick.primary.id)
     }
 
     private func primary(now: Date) -> some View {
@@ -45,6 +46,7 @@ struct NowCard: View {
                 Text(pick.primaryRemaining.map { "\(percent($0))%" } ?? "–")
                     .font(.system(size: 15, weight: .semibold, design: .rounded).monospacedDigit())
                     .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: remaining, settings: store.alertSettings)))
+                    .rollingNumber(remaining)
             }
             .frame(width: 58)
             .opacity(pick.isBlocked ? 0.45 : 1)
@@ -115,6 +117,7 @@ struct NowCard: View {
                         Text(window.title.isEmpty ? String(localized: "한도") : window.title)
                         Text("\(percent(window.remaining))% 남음")
                             .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: window.remaining, settings: store.alertSettings)))
+                            .rollingNumber(window.remaining)
                         if let resetsAt = window.resetsAt {
                             Text("· \(ResetText.string(until: resetsAt, now: now))").foregroundStyle(.tertiary)
                         }
@@ -175,10 +178,11 @@ struct NowCard: View {
             .font(.caption)
             .padding(.horizontal, 8)
             .padding(.vertical, 6)
-            .background(palette.color(for: .plenty).opacity(0.12), in: RoundedRectangle(cornerRadius: 6))
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
+        .modifier(SuggestionBackground(tint: palette.color(for: .plenty)))
+        .transition(.move(edge: .top).combined(with: .opacity))
         .help("이번에 \(account.displayLabel) 계정으로 엽니다. 자동으로 바꾸지는 않아요")
     }
 
@@ -221,12 +225,9 @@ struct NowCard: View {
                 Label(AccountOpen.title(for: target.service, label: target.displayLabel), systemImage: "arrow.up.right")
                     .labelStyle(TrailingIconLabelStyle())
                     .font(.callout.weight(.semibold))
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 5)
-                    .background(palette.color(for: .plenty), in: Capsule())
-                    .foregroundStyle(.white)
+                    .padding(.horizontal, 4)
             }
-            .buttonStyle(.plain)
+            .prominentButton(tint: palette.color(for: .plenty))
             .keyboardShortcut(.return, modifiers: .command)
             .help(AccountOpen.help(for: target.service))
             Spacer()
@@ -239,13 +240,20 @@ struct NowCard: View {
     }
 
     private func tone(_ remaining: Double) -> BarTone { BarTone(remaining: remaining, settings: store.alertSettings) }
+}
 
-    /// 라이트에서는 메뉴보다 밝게, 다크에서는 살짝 밝게 띄운다.
-    private static let fill = Color(nsColor: NSColor(name: nil) { appearance in
-        appearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
-            ? NSColor(white: 1, alpha: 0.07)
-            : NSColor(white: 1, alpha: 0.85)
-    })
+/// “바꾸기” 줄 바탕. macOS 26부터는 누르면 반응하는 색 유리, 그 전에는 옅은 색 판.
+private struct SuggestionBackground: ViewModifier {
+    let tint: Color
+
+    func body(content: Content) -> some View {
+        let shape = RoundedRectangle(cornerRadius: 8, style: .continuous)
+        if #available(macOS 26, *) {
+            content.glassEffect(.regular.tint(tint.opacity(0.18)).interactive(), in: shape)
+        } else {
+            content.background(tint.opacity(0.12), in: shape)
+        }
+    }
 }
 
 /// 나머지 서비스 한 줄. 쓸 계정이 없으면 그렇다고만 쓴다.
@@ -275,7 +283,9 @@ private struct OtherServiceLine: View {
                 Text("\(percent(remaining))%")
                     .font(.caption.monospacedDigit())
                     .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: remaining, settings: settings)))
+                    .rollingNumber(remaining)
                 Image(systemName: "arrow.up.right").font(.caption2).foregroundStyle(.tertiary)
+                    .offset(x: isHovering ? 2 : 0, y: isHovering ? -2 : 0)
             }
         }
         .padding(.horizontal, 4)
@@ -283,6 +293,7 @@ private struct OtherServiceLine: View {
         .background(isHovering && line.account != nil ? AnyShapeStyle(.quaternary.opacity(0.6)) : AnyShapeStyle(.clear), in: RoundedRectangle(cornerRadius: 5))
         .contentShape(Rectangle())
         .onHover { isHovering = $0 }
+        .motion(.easeOut(duration: 0.15), value: isHovering)
         .onTapGesture { if let account = line.account { AccountOpen.open(account, store: store) } }
         .contextMenu {
             Button("\(line.service.displayName) 맨 위에 고정") { store.cardPin = .service(line.service) }
@@ -313,6 +324,7 @@ struct UsageRing: View {
                 .stroke(color, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
         }
+        .motion(.smooth(duration: 0.6), value: value)
         .padding(lineWidth / 2)
         .accessibilityHidden(true)
     }

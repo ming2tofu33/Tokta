@@ -47,19 +47,56 @@ struct ServiceBadge: View {
     }
 }
 
-/// 흰(다크에선 짙은) 카드.
+/// 카드. macOS 26부터는 Liquid Glass, 그 전에는 흰(다크에선 짙은) 판.
 struct CardBackground: ViewModifier {
     var radius: CGFloat = 14
+    /// 유리에 아주 옅게 섞는 색. 맨 위 카드처럼 눈에 띄어야 하는 카드에만.
+    var tint: Color?
 
     func body(content: Content) -> some View {
-        content
-            .background(Color(nsColor: .controlBackgroundColor), in: RoundedRectangle(cornerRadius: radius, style: .continuous))
-            .shadow(color: .black.opacity(0.06), radius: 1.5, y: 1)
+        let shape = RoundedRectangle(cornerRadius: radius, style: .continuous)
+        if #available(macOS 26, *) {
+            content.glassEffect(tint.map { Glass.regular.tint($0.opacity(0.12)) } ?? .regular, in: shape)
+        } else {
+            content
+                .background(Color(nsColor: .controlBackgroundColor), in: shape)
+                .shadow(color: .black.opacity(0.06), radius: 1.5, y: 1)
+        }
     }
 }
 
 extension View {
-    func card(radius: CGFloat = 14) -> some View { modifier(CardBackground(radius: radius)) }
+    func card(radius: CGFloat = 14, tint: Color? = nil) -> some View { modifier(CardBackground(radius: radius, tint: tint)) }
+
+    /// 값이 바뀔 때만 움직인다. “동작 줄이기”를 켜면 바로 바뀐다.
+    func motion<V: Equatable>(_ animation: Animation = .snappy(duration: 0.35), value: V) -> some View {
+        modifier(MotionModifier(animation: animation, value: value))
+    }
+
+    /// 숫자가 바뀌면 자리마다 굴러가듯 바뀐다.
+    func rollingNumber(_ value: Double) -> some View {
+        contentTransition(.numericText(value: value)).motion(value: value)
+    }
+
+    /// 눈에 띄는 버튼. macOS 26부터는 색이 든 유리 버튼, 그 전에는 색 캡슐.
+    @ViewBuilder
+    func prominentButton(tint: Color) -> some View {
+        if #available(macOS 26, *) {
+            buttonStyle(.glassProminent).tint(tint)
+        } else {
+            buttonStyle(.borderedProminent).buttonBorderShape(.capsule).tint(tint)
+        }
+    }
+}
+
+private struct MotionModifier<V: Equatable>: ViewModifier {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    let animation: Animation
+    let value: V
+
+    func body(content: Content) -> some View {
+        content.animation(reduceMotion ? nil : animation, value: value)
+    }
 }
 
 /// 맨 위 한 문장 제목.

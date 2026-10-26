@@ -1,39 +1,62 @@
+<div align="center">
+
+<img src="Tokta/Assets.xcassets/AppIcon.appiconset/icon_256x256@2x.png" width="128" alt="Tokta 앱 아이콘">
+
 # Tokta
 
-**돈 내고 쓰는 AI 계정을 전부 Mac 메뉴바에서. 다음엔 어느 계정을 쓸지 작은 픽셀 친구가 알려줘요.**
+**돈 내고 쓰는 AI 계정을 전부 Mac 메뉴바에서.<br>다음엔 어느 계정을 쓸지 작은 픽셀 친구가 알려줘요.**
 
-[English](README.md)
+[![최신 릴리스](https://img.shields.io/github/v/release/ming2tofu33/Tokta?label=release&color=5b5bd6)](../../releases/latest)
+![macOS 15+](https://img.shields.io/badge/macOS-15%2B-22204a)
+![iOS 18+](https://img.shields.io/badge/iOS-18%2B-22204a)
+[![MIT 라이선스](https://img.shields.io/badge/license-MIT-a5a6f6)](LICENSE)
+
+[**Mac용 다운로드**](../../releases/latest) · [지원 서비스](#지원-서비스) · [데이터는 어디에 있나요](#데이터는-어디에-있나요) · [English](README.md)
 
 <!-- TODO: 메뉴바 캐릭터 GIF (docs/images/hero.gif) -->
+<img src="docs/images/characters.png" width="640" alt="Tokta의 픽셀 캐릭터 일곱: Mac 창, 배터리, 칩, 머그컵, 물약, 슬라임, 로봇">
 
-Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 남았는지 계정 수와 상관없이 한눈에 보여줘요. 지금 쓸 계정을 골라주고, 한도가 떨어지기 전에 알려주고, 그 계정을 한 번에 열어줘요.
+</div>
+
+<br>
+
+Tokta는 **Claude, Codex(ChatGPT), Grok, Cursor, Antigravity** 구독이 얼마나 남았는지 계정 수와 상관없이 한눈에 보여줘요. 지금 쓸 계정을 골라주고, 한도가 떨어지기 전에 알려주고, 그 계정을 한 번에 열어줘요.
 
 ## 기능
 
+### 지금 쓸 계정을 바로
+
 - **서비스마다 여러 계정.** 회사 Claude, 개인 Claude, 팀원 좌석까지 계정마다 따로 로그인하고 따로 추적해요.
 - **"지금 쓰기" 카드.** 쓰고 있는 계정을 그대로 보여주다가, 그 계정이 빠듯하거나 막혔을 때만 같은 서비스·같은 그룹에서 더 여유 있는 계정을 제안해요.
-- **픽셀 캐릭터.** Mac 창, 배터리, 칩, 머그컵, 물약, 슬라임, 로봇 중에서 16×16 캐릭터를 골라요. 한도가 차오르면 몸이 빛으로 차고, 표정으로 상태를 알려줘요. 메뉴와 위젯에 나오고, 원하면 메뉴바에도 띄울 수 있어요.
-- **알림.** 한도가 빠듯하거나 1시간 안에 다 쓸 것 같을 때, 리셋 예정 시각이 됐을 때, 구독 결제 전날에 알려줘요.
 - **한 번에 열기.** 추천 계정이 로그인된 창(Claude, Cursor)이나 CLI 터미널(Codex, Grok)을 바로 열어요.
 - **그룹.** 회사·개인처럼 직접 이름 붙인 그룹으로 계정을 묶어요.
+
+### 한도가 떨어지기 전에
+
+- **알림.** 한도가 빠듯하거나 1시간 안에 다 쓸 것 같을 때, 리셋 예정 시각이 됐을 때, 구독 결제 전날에 알려줘요.
 - **사용 기록과 소진 예측.** 계정마다 얼마나 빨리 줄고 있는지 보여줘요.
-- **Tokta 창.** 모든 계정을 정렬해서 보는 목록, 오늘 하루 타임라인, 이번 달에 쓰고 낸 것을 한 창에서 봐요.
 - **구독 관리.** 얼마를 내는지, 언제 결제되는지 기록해요.
+- **Tokta 창.** 모든 계정을 정렬해서 보는 목록, 오늘 하루 타임라인, 이번 달에 쓰고 낸 것을 한 창에서 봐요.
+
+### 어디서든 한눈에
+
+- **픽셀 캐릭터.** Mac 창, 배터리, 칩, 머그컵, 물약, 슬라임, 로봇 중에서 16×16 캐릭터를 골라요. 한도가 차오르면 몸이 빛으로 차고, 표정으로 상태를 알려줘요. 메뉴와 위젯에 나오고, 원하면 메뉴바에도 띄울 수 있어요.
 - **위젯과 iPhone 앱.** Mac 데스크톱 위젯, 그리고 내 iCloud로 동기화되는 iPhone 앱과 위젯이 있어요. iPhone 앱은 아직 App Store에 없어서 지금은 [직접 빌드](#iphone)해야 해요.
 - **한국어와 영어.**
 
 ## 지원 서비스
 
 | 서비스 | 여러 계정 | 사용량을 읽는 방법 | 필요한 것 |
-|---|---|---|---|
-| Claude | 지원 | 계정별 웹 로그인 | — |
-| Codex (ChatGPT) | 지원 | ChatGPT 요금제의 Codex 한도를 ChatGPT 데스크톱 앱에 들어 있는 Codex로 읽기 | [ChatGPT 데스크톱 앱](https://openai.com/chatgpt/download/) 또는 Codex CLI |
-| Grok | 지원 | Grok CLI 로그인과 xAI 사용량 API | [Grok CLI](https://x.ai/build) |
-| Cursor | 지원 | 계정별 cursor.com 로그인 | — |
-| Grok Bot | Cursor 계정을 따라감 | 연결된 Cursor 로그인 | — |
-| Antigravity | 계정 하나 | Antigravity CLI (`agy -p /usage`) | [Antigravity CLI](https://antigravity.google) |
+|---|:---:|---|---|
+| **Claude** | ✓ | 계정별 웹 로그인 | — |
+| **Codex (ChatGPT)** | ✓ | ChatGPT 요금제의 Codex 한도를 ChatGPT 데스크톱 앱에 들어 있는 Codex로 읽기 | [ChatGPT 데스크톱 앱](https://openai.com/chatgpt/download/) 또는 Codex CLI |
+| **Grok** | ✓ | Grok CLI 로그인과 xAI 사용량 API | [Grok CLI](https://x.ai/build) |
+| **Cursor** | ✓ | 계정별 cursor.com 로그인 | — |
+| **Grok Bot** | Cursor 계정을 따라감 | 연결된 Cursor 로그인 | — |
+| **Antigravity** | 계정 하나 | Antigravity CLI (`agy -p /usage`) | [Antigravity CLI](https://antigravity.google) |
 
-이 서비스들은 개인 요금제용 공식 사용량 API가 없어요. 그래서 **서비스가 웹사이트나 CLI를 바꾸면 언제든 깨질 수 있어요.** 깨지면 [이슈](../../issues)로 알려주세요. 서비스마다 정확히 어떻게 읽는지는 [docs/services](docs/services/)에 있어요(영어).
+> [!WARNING]
+> 이 서비스들은 개인 요금제용 공식 사용량 API가 없어요. 그래서 **서비스가 웹사이트나 CLI를 바꾸면 언제든 깨질 수 있어요.** 깨지면 [이슈](../../issues)로 알려주세요. 서비스마다 정확히 어떻게 읽는지는 [docs/services](docs/services/)에 있어요(영어).
 
 ## 설치
 
@@ -49,6 +72,11 @@ Tokta는 Claude, Codex(ChatGPT), Grok, Cursor, Antigravity 구독이 얼마나 �
 
 iPhone 앱과 위젯은 Mac이 읽은 값을 내 iCloud로 받아서 보여줘요. 아직 App Store나 TestFlight에 없어서, 지금은 직접 빌드해야 해요.
 
+<details>
+<summary><b>필요한 것과 빌드 순서</b></summary>
+
+<br>
+
 - Apple Developer 계정, Xcode, **iOS 18** 이상 iPhone이 필요해요.
 - **Mac 앱과 iPhone 앱을 둘 다 같은 팀으로 직접 빌드해야 해요.** 동기화는 팀에 속한 iCloud 컨테이너로 이뤄져서, Releases에서 받은 Mac 앱은 직접 빌드한 iPhone 앱과 연결되지 않아요.
 - 두 기기 모두 같은 Apple ID로 iCloud에 로그인돼 있어야 해요.
@@ -61,16 +89,35 @@ iPhone 앱과 위젯은 Mac이 읽은 값을 내 iCloud로 받아서 보여줘�
 
 자동 서명을 쓰면 처음 빌드할 때 Xcode가 App ID, App Group, iCloud 컨테이너(`iCloud.<내 식별자 앞부분>`)를 등록해 줘요. 안 되면 Apple Developer 포털에서 직접 추가해요.
 
+</details>
+
 ## 데이터는 어디에 있나요
 
-Tokta에는 서버가 없어요.
+> [!NOTE]
+> **Tokta에는 서버가 없어요.** 로그인 정보, 사용량 숫자, 설정은 내 Mac에 두고, iCloud 동기화는 위젯용 스냅샷만 내 개인 CloudKit 데이터베이스에 올려요.
 
 - **로그인 정보**는 내 Mac에만 있어요. 계정마다 웹 세션을 따로 분리된 WebKit 저장소에 둬요. Codex, Grok, Antigravity는 공식 앱이나 CLI의 로그인을 그대로 써요.
 - **사용량 숫자와 설정**은 내 Mac에 저장돼요.
-- **iCloud 동기화**는 위젯용 스냅샷을 내 개인 CloudKit 데이터베이스에 올려요. 로컬 계정 ID, 서비스·계정 이름, 그룹 ID·이름, 요금제, 남은 비율, 한도·리셋·조회 시각, 추천·상태·표정, 화면 설정·알림 기준선, 알림 제목·본문·예약 시각이 포함돼요. 결제 알림에는 구독 금액·통화·결제 주기도 들어갈 수 있어요. 쿠키·토큰·로그인 이메일 필드·API 원문·전체 사용 기록은 포함하지 않아요. 직접 입력한 이름에는 개인정보가 들어갈 수 있어요.
+- **iCloud 동기화**는 위젯용 스냅샷을 내 개인 CloudKit 데이터베이스에 올려요. 쿠키·토큰·로그인 이메일 필드·API 원문·전체 사용 기록은 포함하지 않아요.
+
+<details>
+<summary><b>iCloud로 정확히 무엇이, 언제 올라가나요</b></summary>
+
+<br>
+
+- **스냅샷에 들어가는 것:** 로컬 계정 ID, 서비스·계정 이름, 그룹 ID·이름, 요금제, 남은 비율, 한도·리셋·조회 시각, 추천·상태·표정, 화면 설정·알림 기준선, 알림 제목·본문·예약 시각이 포함돼요. 결제 알림에는 구독 금액·통화·결제 주기도 들어갈 수 있어요. 직접 입력한 이름에는 개인정보가 들어갈 수 있어요.
 - **동기화는 자동이에요.** iCloud 권한이 있는 Mac 빌드에서 iCloud를 사용할 수 있으면, iPhone 연결 여부와 관계없이 화면 내용이 바뀌거나 10분이 지난 뒤 다음 갱신 때 올려요. 알림을 Mac에서만 받도록 설정해도 동기화나 알림 본문 업로드가 꺼지지는 않아요. 현재 앱 안에 동기화를 끄는 스위치는 없어요.
 
+</details>
+
+<details>
+<summary><b>계정을 지우면 어떻게 되나요</b></summary>
+
+<br>
+
 계정을 지울 때 Tokta 창을 닫고 진행 중인 로그인·사용량 조회를 마친 뒤 웹 쿠키·캐시 또는 계정 전용 CLI 로그인 폴더를 지워요. 정리에 실패하면 계정과 오류를 남겨 설정에서 삭제를 다시 시도할 수 있어요. 다른 앱이 소유한 시스템 로그인은 지우지 않아요. 해당 계정으로 열어 둔 터미널은 먼저 닫아 주세요. 독립적으로 실행한 CLI를 종료하거나 서비스의 세션을 원격으로 취소하지는 않아요. iCloud는 다음 업로드 성공 때 갱신되므로 오프라인 기기에는 이전 스냅샷이 남을 수 있어요.
+
+</details>
 
 ## 직접 빌드하기
 
@@ -91,9 +138,15 @@ TOKTA_BUNDLE_PREFIX = com.example.tokta // 내가 쓸 식별자 앞부분
 
 그다음 `Tokta.xcodeproj`를 열고 **Tokta** 스킴을 실행해요.
 
-Apple Developer 계정이 없다면 `Local.xcconfig` 없이 바로 실행해도 돼요. Mac 앱은 로컬 서명으로 빌드되고 실행돼요. 위젯과 iPhone 동기화에는 팀 ID가 필요해요. 모든 타깃의 App Group, iCloud 컨테이너, bundle ID는 `Config/Tokta.xcconfig`가 이 두 값으로 만들어요.
+> [!TIP]
+> Apple Developer 계정이 없다면 `Local.xcconfig` 없이 바로 실행해도 돼요. Mac 앱은 로컬 서명으로 빌드되고 실행돼요. 위젯과 iPhone 동기화에는 팀 ID가 필요해요.
 
-`scripts/install.sh`는 Release로 빌드해서 `/Applications`에 설치해요. `scripts/release.sh`는 Developer ID로 서명하고 공증한 뒤 DMG를 만들어요.
+모든 타깃의 App Group, iCloud 컨테이너, bundle ID는 `Config/Tokta.xcconfig`가 이 두 값으로 만들어요.
+
+| 스크립트 | 하는 일 |
+|---|---|
+| `scripts/install.sh` | Release로 빌드해서 `/Applications`에 설치 |
+| `scripts/release.sh` | Developer ID로 서명하고 공증한 뒤 DMG 만들기 |
 
 ## 기여하기
 

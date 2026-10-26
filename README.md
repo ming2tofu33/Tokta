@@ -1,39 +1,62 @@
+<div align="center">
+
+<img src="Tokta/Assets.xcassets/AppIcon.appiconset/icon_256x256@2x.png" width="128" alt="Tokta app icon">
+
 # Tokta
 
-**Every AI account you pay for, in your Mac menu bar, with a tiny pixel friend who knows which one to use next.**
+**Every AI account you pay for, in your Mac menu bar,<br>with a tiny pixel friend who knows which one to use next.**
 
-[한국어](README.ko.md)
+[![Latest release](https://img.shields.io/github/v/release/ming2tofu33/Tokta?label=release&color=5b5bd6)](../../releases/latest)
+![macOS 15+](https://img.shields.io/badge/macOS-15%2B-22204a)
+![iOS 18+](https://img.shields.io/badge/iOS-18%2B-22204a)
+[![MIT License](https://img.shields.io/badge/license-MIT-a5a6f6)](LICENSE)
+
+[**Download for Mac**](../../releases/latest) · [Supported services](#supported-services) · [Where your data lives](#where-your-data-lives) · [한국어](README.ko.md)
 
 <!-- TODO: hero GIF of the menu bar character (docs/images/hero.gif) -->
+<img src="docs/images/characters.png" width="640" alt="Tokta's seven pixel characters: a Mac window, battery, chip, mug, potion, slime and robot">
 
-Tokta shows how much is left on each of your AI subscriptions — Claude, Codex (ChatGPT), Grok, Cursor and Antigravity — across as many accounts as you have. It picks the account to use right now, warns you before one runs out, and opens that account in one click.
+</div>
+
+<br>
+
+Tokta shows how much is left on each of your AI subscriptions — **Claude, Codex (ChatGPT), Grok, Cursor and Antigravity** — across as many accounts as you have. It picks the account to use right now, warns you before one runs out, and opens that account in one click.
 
 ## Features
 
+### Know which account to use
+
 - **Many accounts per service.** A work Claude, a personal Claude, a teammate's seat — each signs in separately and is tracked on its own.
 - **"Use this now" card.** Sticks with the account you're using, and suggests a roomier account from the same service and group only when yours is running low or blocked.
-- **Pixel characters.** Pick from seven 16×16 characters: a Mac window, battery, chip, mug, potion, slime or robot. Each one fills with light as your limits refill, and its face tells you how things are going. It shows up in the menu, the widgets and, if you like, the menu bar.
-- **Alerts.** When a limit is running low or will run out within the hour, when its reset time arrives, and the day before a subscription renews.
 - **Open in one click.** Opens the recommended account's signed-in window (Claude, Cursor) or CLI terminal (Codex, Grok).
 - **Groups.** Organize accounts into your own groups, such as Work and Personal.
+
+### Stay ahead of your limits
+
+- **Alerts.** When a limit is running low or will run out within the hour, when its reset time arrives, and the day before a subscription renews.
 - **Usage history and forecasts.** See how fast each account is burning down.
-- **Tokta window.** All accounts in one sortable list, today's timeline, and a monthly view of what you used and paid.
 - **Subscriptions.** Track what you pay and when each plan renews.
+- **Tokta window.** All accounts in one sortable list, today's timeline, and a monthly view of what you used and paid.
+
+### See it wherever you look
+
+- **Pixel characters.** Pick from seven 16×16 characters: a Mac window, battery, chip, mug, potion, slime or robot. Each one fills with light as your limits refill, and its face tells you how things are going. It shows up in the menu, the widgets and, if you like, the menu bar.
 - **Widgets and iPhone app.** Desktop widgets on the Mac, and an iPhone app and widgets synced through your own iCloud. The iPhone app isn't on the App Store yet, so you have to [build it yourself](#iphone) for now.
 - **English and Korean.**
 
 ## Supported services
 
 | Service | Multiple accounts | How Tokta reads usage | Needs |
-|---|---|---|---|
-| Claude | Yes | Per-account web sign-in | — |
-| Codex (ChatGPT) | Yes | The Codex limit of your ChatGPT plan, via the Codex bundled with the ChatGPT desktop app | [ChatGPT desktop app](https://openai.com/chatgpt/download/) or the Codex CLI |
-| Grok | Yes | Grok CLI sign-in and the xAI usage API | [Grok CLI](https://x.ai/build) |
-| Cursor | Yes | Per-account cursor.com sign-in | — |
-| Grok Bot | Follows your Cursor accounts | Your linked Cursor sign-in | — |
-| Antigravity | One account | Antigravity CLI (`agy -p /usage`) | [Antigravity CLI](https://antigravity.google) |
+|---|:---:|---|---|
+| **Claude** | ✓ | Per-account web sign-in | — |
+| **Codex (ChatGPT)** | ✓ | The Codex limit of your ChatGPT plan, via the Codex bundled with the ChatGPT desktop app | [ChatGPT desktop app](https://openai.com/chatgpt/download/) or the Codex CLI |
+| **Grok** | ✓ | Grok CLI sign-in and the xAI usage API | [Grok CLI](https://x.ai/build) |
+| **Cursor** | ✓ | Per-account cursor.com sign-in | — |
+| **Grok Bot** | Follows your Cursor accounts | Your linked Cursor sign-in | — |
+| **Antigravity** | One account | Antigravity CLI (`agy -p /usage`) | [Antigravity CLI](https://antigravity.google) |
 
-None of these services offers an official usage API for consumer plans, so **any of them can break when a service changes its website or CLI**. If one breaks, please [open an issue](../../issues). [docs/services](docs/services/) explains exactly how each one is read.
+> [!WARNING]
+> None of these services offers an official usage API for consumer plans, so **any of them can break when a service changes its website or CLI**. If one breaks, please [open an issue](../../issues). [docs/services](docs/services/) explains exactly how each one is read.
 
 ## Install
 
@@ -47,7 +70,12 @@ Requires **macOS 15** or later.
 
 ### iPhone
 
-The iPhone app and its widgets show what your Mac reads, synced through your own iCloud. It isn't on the App Store or TestFlight yet, so for now you need to build it yourself:
+The iPhone app and its widgets show what your Mac reads, synced through your own iCloud. It isn't on the App Store or TestFlight yet, so for now you need to build it yourself.
+
+<details>
+<summary><b>What you need and how to build it</b></summary>
+
+<br>
 
 - An Apple Developer account, Xcode, and an iPhone on **iOS 18** or later.
 - **Build both the Mac app and the iPhone app yourself, with the same team.** Sync uses an iCloud container that belongs to your team, so the Mac app from Releases can't talk to an iPhone app you built.
@@ -61,16 +89,35 @@ Steps:
 
 With automatic signing, Xcode registers the App IDs, App Group and iCloud container (`iCloud.<your prefix>`) the first time you build. If it doesn't, add them in the Apple Developer portal.
 
+</details>
+
 ## Where your data lives
 
-Tokta has no server.
+> [!NOTE]
+> **Tokta has no server.** Sign-ins, usage numbers and settings are kept on your Mac, and iCloud sync sends only a widget snapshot to your own private CloudKit database.
 
 - **Sign-ins** stay on your Mac. Each account's web session is kept in its own separate WebKit store. Codex, Grok and Antigravity use the sign-in of their official apps or CLIs.
 - **Usage numbers and settings** are stored locally on your Mac.
-- **iCloud sync** uploads the widget snapshot to your own private CloudKit database: local account IDs, service and account names, group IDs/names, plans, remaining percentages, limit/reset and observation times, recommendations, status/mood, appearance and alert thresholds, and notification titles, bodies and scheduled times. Renewal notifications can contain subscription prices, currencies and billing cycles. Cookies, tokens, login email fields, raw API responses and full usage history are not included. Names you enter can themselves contain personal information.
+- **iCloud sync** uploads the widget snapshot to your own private CloudKit database. Cookies, tokens, login email fields, raw API responses and full usage history are not included.
+
+<details>
+<summary><b>Exactly what iCloud sync uploads, and when</b></summary>
+
+<br>
+
+- **What's in the snapshot:** local account IDs, service and account names, group IDs/names, plans, remaining percentages, limit/reset and observation times, recommendations, status/mood, appearance and alert thresholds, and notification titles, bodies and scheduled times. Renewal notifications can contain subscription prices, currencies and billing cycles. Names you enter can themselves contain personal information.
 - **Sync is automatic** in Mac builds with the iCloud entitlement when iCloud is available; an iPhone does not need to be connected. It runs when visible data changes or after ten minutes on the next publish. Choosing Mac-only notifications changes where alerts are delivered; it does not disable sync or remove notification text from the snapshot. There is currently no in-app sync-off switch.
 
+</details>
+
+<details>
+<summary><b>What happens when you remove an account</b></summary>
+
+<br>
+
 Removing an account closes its Tokta windows and waits for Tokta's sign-in and usage tasks before deleting its web cookies/cache or dedicated CLI login folder. If cleanup fails, the account stays listed with an error so you can retry deletion in Settings. System logins owned by other apps are preserved. Close terminals opened for that account before deleting it: Tokta cannot stop a CLI you are running independently or revoke sessions on the service. iCloud is updated on the next successful upload; an offline device can still display its previous snapshot.
+
+</details>
 
 ## Build from source
 
@@ -91,9 +138,15 @@ TOKTA_BUNDLE_PREFIX = com.example.tokta // an identifier prefix you own
 
 Then open `Tokta.xcodeproj` and run the **Tokta** scheme.
 
-No Apple Developer account? Skip `Local.xcconfig` and just run the scheme. The Mac app builds and runs with local signing. Widgets and iPhone sync need a team ID. The App Group, iCloud container and bundle IDs for every target are derived from these two values in `Config/Tokta.xcconfig`.
+> [!TIP]
+> No Apple Developer account? Skip `Local.xcconfig` and just run the scheme. The Mac app builds and runs with local signing. Widgets and iPhone sync need a team ID.
 
-`scripts/install.sh` builds a Release copy and installs it into `/Applications`. `scripts/release.sh` signs it with Developer ID, notarizes it and makes a DMG.
+The App Group, iCloud container and bundle IDs for every target are derived from these two values in `Config/Tokta.xcconfig`.
+
+| Script | What it does |
+|---|---|
+| `scripts/install.sh` | Builds a Release copy and installs it into `/Applications` |
+| `scripts/release.sh` | Signs it with Developer ID, notarizes it and makes a DMG |
 
 ## Contributing
 

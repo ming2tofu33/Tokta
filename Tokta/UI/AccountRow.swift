@@ -115,7 +115,10 @@ struct AccountRow: View {
                         .font(.usageNumber(13))
                         .foregroundStyle(palette.textStyle(for: summary.level))
                         .rollingNumber(summary.remaining)
-                        .frame(width: 36, alignment: .trailing)
+                        // "100%"가 둥근 숫자 글꼴로 약 38pt. 넘치면 잘리지 않고 조금 줄어든다.
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                        .frame(width: 44, alignment: .trailing)
                 }
                 .opacity(isStale ? 0.45 : 1)
                 notice(summary.notice)

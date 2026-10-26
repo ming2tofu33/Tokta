@@ -47,8 +47,11 @@ struct NowCard: View {
                     .font(.usageNumber(20, weight: .bold))
                     .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: remaining, settings: store.alertSettings)))
                     .rollingNumber(remaining)
+                    // "100%"가 20pt 굵게 약 58pt. 넘치면 잘리지 않고 조금 줄어든다.
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
             }
-            .frame(width: 58)
+            .frame(width: 66)
             .opacity(pick.isBlocked ? 0.45 : 1)
 
             VStack(alignment: .leading, spacing: 2) {

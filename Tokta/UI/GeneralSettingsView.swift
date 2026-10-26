@@ -17,7 +17,7 @@ struct GeneralSettingsView: View {
     var body: some View {
         Form {
             Section {
-                Toggle("로그인 시 Tokta 열기", isOn: Binding(get: { launchAtLogin }, set: setLaunchAtLogin))
+                Toggle("로그인 시 Tokta 열기", isOn: Binding(get: { launchAtLogin }, set: { setLaunchAtLogin($0) }))
                     .disabled(!isInstalled)
                 if !isInstalled {
                     Text("응용 프로그램 폴더에 설치한 Tokta에서 켜세요. 지금 실행 중인 앱은 Xcode 빌드입니다.")

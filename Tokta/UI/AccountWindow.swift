@@ -14,6 +14,7 @@ final class AccountWindowController: NSObject, NSWindowDelegate, WKNavigationDel
     private let webView: EditableWebView
 
     static func show(for account: Account, store: UsageStore, frame: NSRect? = nil) {
+        guard store.canUse(account.id) else { return }
         if let controller = openWindows[account.id] {
             controller.window.makeKeyAndOrderFront(nil)
         } else {
@@ -23,6 +24,10 @@ final class AccountWindowController: NSObject, NSWindowDelegate, WKNavigationDel
             controller.window.makeKeyAndOrderFront(nil)
         }
         NSApp.activate()
+    }
+
+    static func close(for id: Account.ID) {
+        openWindows[id]?.window.close()
     }
 
     private init(account: Account, store: UsageStore) {
@@ -69,6 +74,7 @@ final class AccountWindowController: NSObject, NSWindowDelegate, WKNavigationDel
 
     func windowWillClose(_ notification: Notification) {
         webView.stopLoading()
+        window.contentView = nil
         Self.openWindows[accountID] = nil
     }
 
@@ -76,7 +82,7 @@ final class AccountWindowController: NSObject, NSWindowDelegate, WKNavigationDel
 
     /// 새 창으로 여는 링크: 같은 서비스면 이 창에서, 다른 사이트면 기본 브라우저에서.
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        guard let url = navigationAction.request.url else { return nil }
+        guard let url = navigationAction.request.url, WebURLPolicy.allowsExternal(url) else { return nil }
         if isServiceHost(url) { webView.load(navigationAction.request) } else { NSWorkspace.shared.open(url) }
         return nil
     }
@@ -99,6 +105,10 @@ final class AccountWindowController: NSObject, NSWindowDelegate, WKNavigationDel
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        guard navigationAction.request.url.map(WebURLPolicy.allowsNavigation) == true else {
+            decisionHandler(.cancel)
+            return
+        }
         decisionHandler(navigationAction.shouldPerformDownload ? .download : .allow)
     }
 

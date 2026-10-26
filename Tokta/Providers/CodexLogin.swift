@@ -22,8 +22,11 @@ enum CodexHomes {
         return home
     }
 
-    static func remove(for id: Account.ID) {
-        try? FileManager.default.removeItem(at: directory(for: id))
+    static func remove(for id: Account.ID) throws {
+        let directory = directory(for: id)
+        if FileManager.default.fileExists(atPath: directory.path) {
+            try FileManager.default.removeItem(at: directory)
+        }
     }
 }
 
@@ -34,13 +37,30 @@ enum CodexLogin {
     private static var running: (id: Account.ID, rpc: JSONLineProcess)?
     private static let allowedHosts: Set<String> = ["auth.openai.com", "auth0.openai.com", "chatgpt.com", "auth.chatgpt.com"]
 
+    private static var tasks: [Account.ID: Task<Void, Never>] = [:]
+
+    static func stop(for id: Account.ID, store: UsageStore) async throws {
+        let task = tasks[id]
+        let process = running?.id == id ? running?.rpc : nil
+        cancel(id, store: store)
+        try await process?.waitForExit()
+        await task?.value
+    }
+
     static func start(for account: Account, store: UsageStore) {
+        guard store.canUse(account.id), tasks[account.id] == nil else { return }
         // Codex 로그인은 같은 로컬 포트로 결과를 받아서 한 번에 하나만 진행한다.
-        if let running { cancel(running.id, store: store) }
+        let previousIDs = Array(tasks.keys)
+        for id in previousIDs { cancel(id, store: store) }
         store.setLoggingIn(account.id, true)
-        Task {
+        tasks[account.id] = Task {
+            defer { tasks[account.id] = nil }
             do {
+                for id in previousIDs { try await stop(for: id, store: store) }
+                try Task.checkCancellation()
+                guard store.canUse(account.id) else { return }
                 let snapshot = try await signIn(account) { store.setLoginURL($0, for: account.id) }
+                try Task.checkCancellation()
                 store.record(snapshot, for: account.id)
             } catch is CancellationError {
             } catch {
@@ -51,9 +71,11 @@ enum CodexLogin {
     }
 
     static func cancel(_ id: Account.ID, store: UsageStore) {
+        tasks[id]?.cancel()
+        store.setLoginURL(nil, for: id)
+        store.setLoggingIn(id, false)
         guard let running, running.id == id else { return }
         running.rpc.terminate()
-        self.running = nil
         store.setLoggingIn(id, false)
     }
 
@@ -73,6 +95,7 @@ enum CodexLogin {
                   url.scheme == "https", let host = url.host(), allowedHosts.contains(host) else {
                 throw UsageError.failed(String(localized: "Codex 로그인 주소를 확인할 수 없습니다"))
             }
+            try Task.checkCancellation()
             showURL(url)
             NSWorkspace.shared.open(url)
             let completed = try await rpc.notification("account/login/completed")
@@ -80,13 +103,23 @@ enum CodexLogin {
                 throw UsageError.failed(String(localized: "ChatGPT 로그인이 완료되지 않았습니다"))
             }
         } catch JSONLineProcess.RPCError.closed {
+            rpc.terminate()
+            try await rpc.waitForExit()
             // 취소했거나 5분 안에 로그인을 마치지 않았다.
-            if running?.id != account.id { throw CancellationError() }
+            if Task.isCancelled || running?.id != account.id { throw CancellationError() }
             throw UsageError.failed(String(localized: "ChatGPT 로그인 시간이 지났습니다. 다시 시도하세요"))
         } catch JSONLineProcess.RPCError.failed {
+            rpc.terminate()
+            try await rpc.waitForExit()
             throw UsageError.failed(String(localized: "Codex 로그인을 시작하지 못했습니다. Codex를 최신 버전으로 업데이트하세요"))
+        } catch {
+            rpc.terminate()
+            try await rpc.waitForExit()
+            throw error
         }
         rpc.terminate()
+        try await rpc.waitForExit()
+        try Task.checkCancellation()
         var loggedIn = account
         loggedIn.usesSystemLogin = false
         return try await CodexProvider().fetchUsage(for: loggedIn)

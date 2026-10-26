@@ -4516,6 +4516,17 @@
           }
         }
       }
+    },
+    "로그인 정보를 지우지 못했습니다. 계정 삭제를 다시 시도하세요.": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not remove sign-in data. Try deleting the account again."
+          }
+        }
+      }
     }
   },
   "version": "1.0"

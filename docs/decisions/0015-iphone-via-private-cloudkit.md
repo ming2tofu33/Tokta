@@ -9,7 +9,7 @@ People wanted to check their limits on the phone, including when the Mac is asle
 
 ## Decision
 
-- The Mac uploads the same data the widgets use to the user's **private** CloudKit database, overwriting a single record. It uploads only when something visible changes or 10 minutes pass. No sign-in data is ever uploaded: only account names, plans, remaining percentages, reset times, recommendations and moods.
+- The Mac uploads the same data the widgets use to the user's **private** CloudKit database, overwriting a single record. It uploads only when something visible changes or 10 minutes pass. No sign-in data is uploaded. The snapshot also contains local account/group identifiers and names, service names, plans, limit/reset and observation times, recommendations, statuses/moods, appearance, alert thresholds, and notification titles/bodies/scheduled times (including renewal amounts, currencies and billing cycles). See the complete disclosure in [README](../../README.md#where-your-data-lives). Sync is automatic in entitled builds; choosing Mac-only alerts does not disable sync or exclude notification text.
 - There is no Tokta server.
 - The iPhone app and widgets display that record and wake on CloudKit silent pushes.
 - When a reset time has passed since the Mac's last read, the iPhone shows **"needs check"** instead of guessing a refilled percentage, and does not recommend accounts from guessed values.

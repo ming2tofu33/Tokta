@@ -225,7 +225,7 @@ private struct AccountConnectStatus: View {
             } else if let error = store.errors[account.id] {
                 Label(error, systemImage: "exclamationmark.triangle.fill").font(.caption).foregroundStyle(.orange).lineLimit(1)
                 Button("다시 시도") { AccountLogin.start(for: account, store: store) }.controlSize(.small)
-                Button("나중에") { store.remove(account.id) }.controlSize(.small)
+                Button("나중에") { Task { await store.remove(account.id) } }.controlSize(.small)
             } else if store.loggingIn.contains(account.id) {
                 ProgressView().controlSize(.mini)
                 Text("로그인을 기다려요").font(.caption).foregroundStyle(.secondary)

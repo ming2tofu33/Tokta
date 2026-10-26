@@ -1,5 +1,20 @@
 import WebKit
 
+enum WebURLPolicy {
+    static func allowsExternal(_ url: URL) -> Bool {
+        ["https", "http"].contains(url.scheme?.lowercased() ?? "") && url.host() != nil
+    }
+
+    static func allowsNavigation(_ url: URL) -> Bool {
+        allowsExternal(url) || url.absoluteString == "about:blank" || url.scheme == "blob"
+    }
+
+    static func matchesHost(_ url: URL, _ domain: String) -> Bool {
+        guard url.scheme == "https", let host = url.host()?.lowercased() else { return false }
+        return host == domain || host.hasSuffix("." + domain)
+    }
+}
+
 /// 계정마다 분리된 WebKit 저장소. 같은 서비스의 계정 여러 개가 쿠키를 섞지 않는다.
 @MainActor
 enum WebSessions {
@@ -20,14 +35,28 @@ enum WebSessions {
 
     static func cookie(named name: String, domain: String, for id: Account.ID) async -> String? {
         await dataStore(for: id).httpCookieStore.allCookies()
-            .first { $0.name == name && $0.domain.hasSuffix(domain) }?
+            .first { $0.name == name && ($0.domain == domain || $0.domain == "." + domain) }?
             .value
     }
 
+    private static func clearData(for id: Account.ID) async {
+        await dataStore(for: id).removeData(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes(), modifiedSince: .distantPast)
+    }
+
     /// 계정을 지우면 그 계정의 로그인 쿠키와 캐시도 지운다.
-    static func remove(_ id: Account.ID) async {
+    static func remove(_ id: Account.ID) async throws {
+        // Clear credentials first; even if removing the store fails, cookies must not survive.
+        await clearData(for: id)
         stores[id] = nil
-        try? await WKWebsiteDataStore.remove(forIdentifier: id)
+        for attempt in 0..<3 {
+            do {
+                try await WKWebsiteDataStore.remove(forIdentifier: id)
+                return
+            } catch {
+                if attempt == 2 { throw error }
+                try await Task.sleep(for: .milliseconds(200))
+            }
+        }
     }
 }
 
@@ -66,15 +95,15 @@ enum WebLoginSite {
     }
 
     static func isGoogleSignIn(_ url: URL) -> Bool {
-        url.host()?.hasSuffix("accounts.google.com") == true
+        WebURLPolicy.matchesHost(url, "accounts.google.com")
     }
 
     /// 로그인을 마치고 그 사이트로 돌아왔는지. 로그인 페이지(다른 도메인 포함)에 있으면 읽기를 시도하지 않는다.
     func isPastLogin(_ url: URL) -> Bool {
         let host = url.host() ?? ""
         switch self {
-        case .claude: return host.hasSuffix("claude.ai") && !url.path().contains("login")
-        case .cursor: return (host == "cursor.com" || host == "www.cursor.com") && !url.path().contains("login")
+        case .claude: return WebURLPolicy.matchesHost(url, "claude.ai") && !url.path().contains("login")
+        case .cursor: return url.scheme == "https" && (host == "cursor.com" || host == "www.cursor.com") && !url.path().contains("login")
         }
     }
 
@@ -93,6 +122,7 @@ enum WebLoginSite {
 final class HiddenBrowser: NSObject, WKNavigationDelegate {
     private let webView: WKWebView
     private var loading: CheckedContinuation<Void, any Error>?
+    private var loadTimeout: Task<Void, Never>?
 
     init(accountID: Account.ID) {
         webView = WKWebView(frame: .zero, configuration: WebSessions.configuration(for: accountID))
@@ -101,17 +131,24 @@ final class HiddenBrowser: NSObject, WKNavigationDelegate {
     }
 
     func open(_ url: URL) async throws {
+        try Task.checkCancellation()
         try await withCheckedThrowingContinuation { continuation in
             loading = continuation
+            loadTimeout = Task { [weak self] in
+                do { try await Task.sleep(for: .seconds(15)) } catch { return }
+                self?.webView.stopLoading()
+                self?.finishLoading(URLError(.timedOut))
+            }
             webView.load(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 15))
         }
     }
 
     /// 현재 페이지 기준 경로로 요청을 보내고 상태 코드와 본문을 돌려준다. `jsonBody`가 있으면 POST.
     func get(_ path: String, jsonBody: String? = nil) async throws -> (status: Int, body: String) {
+        try Task.checkCancellation()
         let result = try await webView.callAsyncJavaScript(
             """
-            const options = { credentials: 'include', cache: 'no-store', headers: { Accept: 'application/json' } };
+            const options = { signal: AbortSignal.timeout(15000), credentials: 'include', cache: 'no-store', headers: { Accept: 'application/json' } };
             if (body !== null) {
               options.method = 'POST';
               options.headers['Content-Type'] = 'application/json';
@@ -129,18 +166,23 @@ final class HiddenBrowser: NSObject, WKNavigationDelegate {
         return (status, body)
     }
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        loading?.resume()
+    private func finishLoading(_ error: (any Error)? = nil) {
+        loadTimeout?.cancel()
+        loadTimeout = nil
+        let continuation = loading
         loading = nil
+        if let error { continuation?.resume(throwing: error) } else { continuation?.resume() }
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        finishLoading()
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: any Error) {
-        loading?.resume(throwing: error)
-        loading = nil
+        finishLoading(error)
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: any Error) {
-        loading?.resume(throwing: error)
-        loading = nil
+        finishLoading(error)
     }
 }

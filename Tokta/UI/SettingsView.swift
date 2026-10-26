@@ -44,6 +44,9 @@ private struct AccountsSettingsView: View {
                                             Text(account.service.displayName).font(.caption).foregroundStyle(.secondary)
                                         }
                                     }
+                                    if let error = store.errors[account.id] {
+                                        Text(error).font(.caption).foregroundStyle(.orange)
+                                    }
                                     if let email = account.email {
                                         Text(email).font(.caption).foregroundStyle(.secondary)
                                     }
@@ -60,12 +63,14 @@ private struct AccountsSettingsView: View {
                                     .frame(width: 130)
                                 }
                                 Button(role: .destructive) {
-                                    store.remove(account.id)
+                                    Task { await store.remove(account.id) }
                                 } label: {
                                     Image(systemName: "trash")
                                 }
                                 .buttonStyle(.borderless)
                                 .help("계정 삭제")
+                                .disabled(store.deleting.contains(account.id))
+                                if store.deleting.contains(account.id) { ProgressView().controlSize(.small) }
                             }
                         }
                         .onMove { store.moveAccounts(inSection: section.id, fromOffsets: $0, toOffset: $1) }

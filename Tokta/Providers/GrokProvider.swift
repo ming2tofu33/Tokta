@@ -102,8 +102,11 @@ enum GrokHomes {
         return home
     }
 
-    static func remove(for id: Account.ID) {
-        try? FileManager.default.removeItem(at: directory(for: id))
+    static func remove(for id: Account.ID) throws {
+        let directory = directory(for: id)
+        if FileManager.default.fileExists(atPath: directory.path) {
+            try FileManager.default.removeItem(at: directory)
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import WebKit
 @testable import Tokta
 
 private func snapshot(remaining: Double...) -> UsageSnapshot {
@@ -415,7 +416,7 @@ struct ChatGPTAccountTests {
 
     @Test func preparedHomeStoresCredentialsInFile() throws {
         let id = UUID()
-        defer { CodexHomes.remove(for: id) }
+        defer { try? CodexHomes.remove(for: id) }
         let home = try CodexHomes.prepare(for: id)
         let config = try String(contentsOf: home.appending(path: "config.toml"), encoding: .utf8)
         #expect(config.contains(#"cli_auth_credentials_store = "file""#))
@@ -1375,7 +1376,7 @@ struct GrokBotSplitTests {
         store.add(cursor)
         await store.refresh(cursor)
         let grokBot = store.accounts.first { $0.service == .grokBot }!
-        store.remove(grokBot.id)
+        await store.remove(grokBot.id)
         await store.refresh(cursor)
         #expect(!store.accounts.contains { $0.service == .grokBot })
         #expect(store.accounts.first?.hidesGrokBot == true)
@@ -1384,7 +1385,7 @@ struct GrokBotSplitTests {
         let second = Account(service: .cursor, label: "커서2")
         other.add(second)
         await other.refresh(second)
-        other.remove(second.id)
+        await other.remove(second.id)
         #expect(other.accounts.isEmpty)
     }
 
@@ -1588,5 +1589,129 @@ struct RefillTests {
         #expect(RefillText.until(now.addingTimeInterval(40 * 60), now: now) == "40분 뒤")
         #expect(RefillText.until(now.addingTimeInterval(170 * 60), now: now) == "2시간 50분 뒤")
         #expect(RefillText.until(now.addingTimeInterval(27 * 3600), now: now) == "1일 3시간 뒤")
+    }
+}
+
+// Security regressions use only synthetic accounts and local stores, never real credentials.
+struct WebURLSecurityTests {
+    @Test func externalLinksCannotLaunchAppsOrOpenFiles() {
+        for text in ["file:///Applications/Calculator.app", "tokta://open/123", "x-apple.systempreferences:com.apple.preference.security", "javascript:alert(1)", "data:text/html,test", "blob:https://claude.ai/123", "about:blank"] {
+            #expect(!WebURLPolicy.allowsExternal(URL(string: text)!))
+        }
+        #expect(WebURLPolicy.allowsExternal(URL(string: "https://example.com/path")!))
+        #expect(WebURLPolicy.allowsExternal(URL(string: "http://example.com/path")!))
+        #expect(WebURLPolicy.allowsNavigation(URL(string: "blob:https://claude.ai/123")!))
+        #expect(!WebURLPolicy.allowsNavigation(URL(string: "file:///tmp/test.html")!))
+    }
+
+    @Test func loginHostRequiresHTTPSAndDomainBoundary() {
+        #expect(WebLoginSite.claude.isPastLogin(URL(string: "https://claude.ai/new")!))
+        for text in ["https://evilclaude.ai/new", "https://claude.ai.example.com/new", "http://claude.ai/new", "file://claude.ai/new"] {
+            #expect(!WebLoginSite.claude.isPastLogin(URL(string: text)!))
+        }
+        #expect(!WebLoginSite.isGoogleSignIn(URL(string: "https://evilaccounts.google.com/login")!))
+    }
+}
+
+private actor SuspendedUsageProvider: UsageProvider {
+    private var continuation: CheckedContinuation<UsageSnapshot, Never>?
+    var started: Bool { continuation != nil }
+    func fetchUsage(for account: Account) async throws -> UsageSnapshot {
+        await withCheckedContinuation { continuation = $0 }
+    }
+    func finish() {
+        continuation?.resume(returning: UsageSnapshot(windows: [], observedAt: .now, loginEmail: "test@example.com"))
+        continuation = nil
+    }
+}
+
+@MainActor
+struct AccountDeletionSecurityTests {
+    @Test func failedCleanupKeepsAccountAndCanBeRetried() async {
+        var attempts = 0
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let store = UsageStore(registry: .init(providers: [:]), directory: directory, removeCredentials: { _ in
+            attempts += 1
+            if attempts == 1 { throw CocoaError(.fileWriteNoPermission) }
+        })
+        let account = Account(service: .claude, label: "Test")
+        store.add(account)
+        #expect(await store.remove(account.id) == false)
+        #expect(store.accounts.contains { $0.id == account.id })
+        #expect(store.errors[account.id] != nil)
+        #expect(!store.canUse(account.id))
+        await store.refreshAll()
+        #expect(store.errors[account.id] != nil)
+        #expect(await store.remove(account.id))
+        #expect(store.accounts.isEmpty)
+        #expect(attempts == 2)
+        let reloaded = UsageStore(registry: .init(providers: [:]), directory: directory)
+        #expect(reloaded.accounts.isEmpty)
+    }
+
+    @Test(.timeLimit(.minutes(1))) func deletionWaitsForOutstandingReadAndRejectsLateData() async {
+        let provider = SuspendedUsageProvider()
+        var cleaned = false
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let store = UsageStore(registry: .init(providers: [.claude: provider]), directory: directory, removeCredentials: { _ in cleaned = true })
+        let account = Account(service: .claude, label: "Test")
+        store.add(account)
+        while !(await provider.started) { await Task.yield() }
+        let deletion = Task { await store.remove(account.id) }
+        while !store.deleting.contains(account.id) { await Task.yield() }
+        #expect(!cleaned)
+        #expect(!store.canUse(account.id))
+        await provider.finish()
+        #expect(await deletion.value)
+        #expect(cleaned)
+        store.record(UsageSnapshot(windows: [], observedAt: .now), for: account.id)
+        store.setLoginURL(URL(string: "https://example.com"), for: account.id)
+        #expect(store.accounts.isEmpty)
+        #expect(store.snapshots[account.id] == nil)
+        #expect(store.loginURLs[account.id] == nil)
+    }
+
+    @Test func busyWebStoreClearsCookiesAndReportsFailureUntilReleased() async throws {
+        let id = UUID()
+        // Keep an actual WKWebView alive to reproduce the store-in-use failure.
+        var view: WKWebView? = WKWebView(frame: .zero, configuration: WebSessions.configuration(for: id))
+        let cookie = try #require(HTTPCookie(properties: [.domain: "example.invalid", .path: "/", .name: "session", .value: "synthetic-test-value", .secure: "TRUE"]))
+        await view?.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+        do {
+            try await WebSessions.remove(id)
+            Issue.record("Removing a store still held by a web view must report failure")
+        } catch {
+            let cookies = await view?.configuration.websiteDataStore.httpCookieStore.allCookies()
+            #expect(cookies?.isEmpty == true)
+        }
+        view = nil
+        try await WebSessions.remove(id)
+    }
+
+    @Test func deletingBeforeLoginTaskStartsDoesNotCreateCredentials() async {
+        let directory = FileManager.default.temporaryDirectory.appending(path: UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let store = UsageStore(registry: .init(providers: [:]), directory: directory)
+        let account = Account(service: .chatgpt, label: "Test")
+        store.add(account)
+        CodexLogin.start(for: account, store: store)
+        #expect(await store.remove(account.id))
+        #expect(!FileManager.default.fileExists(atPath: CodexHomes.directory(for: account.id).path))
+        #expect(!store.loggingIn.contains(account.id))
+    }
+}
+
+struct ProcessCleanupSecurityTests {
+    @Test(.timeLimit(.minutes(1))) func uncooperativeChildIsStoppedBeforeCleanupCompletes() async throws {
+        // The shell installs SIG_IGN before exec, so sleep ignores SIGTERM as well.
+        let process = ChildProcess(executable: URL(fileURLWithPath: "/bin/sh"),
+                                   arguments: ["-c", "trap '' TERM; printf ready; exec /bin/sleep 30"], capturesOutput: true)
+        let running = Task { try await process.run(timeout: .seconds(15)) }
+        while process.output.isEmpty { try await Task.sleep(for: .milliseconds(10)) }
+        process.terminate()
+        try await process.waitForExit()
+        #expect(try await running.value != 0)
     }
 }

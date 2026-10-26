@@ -6,6 +6,8 @@ Tokta keeps sign-in sessions for several AI services on your Mac, so security re
 
 **Please do not open a public issue.** Report it privately through GitHub instead: go to the repository's **Security** tab and choose **Report a vulnerability**.
 
+Private vulnerability reporting is available on public repositories. Before making this repository public, the maintainer must enable it during the public launch and verify that the report form is accessible. While the repository is private, use an existing private contact with the maintainer; do not put details in a public issue if the button is unavailable.
+
 Include what you found, how to reproduce it, and which version or commit you tested. You'll get a reply when the maintainer can look at it. This is a personal project, so there is no guaranteed response time.
 
 ## What counts

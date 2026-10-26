@@ -2,7 +2,7 @@ import CloudKit
 import Foundation
 
 /// 맥이 읽은 위젯 데이터를 본인 iCloud(CloudKit 개인 데이터베이스)에 올리고, iPhone이 받아 간다.
-/// 올리는 건 계정 이름·플랜·남은 %·리셋 시각 정도이고 로그인 정보는 없다. 서버는 따로 없다.
+/// WidgetData 전체(그룹·설정·결제 금액이 들어갈 수 있는 알림 포함)를 보낸다. 인증정보는 없다. README 참고.
 enum CloudSync {
     static let containerID = BuildConfig.iCloudContainer
     static let recordType = "UsageSnapshot"

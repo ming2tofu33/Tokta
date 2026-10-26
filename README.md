@@ -67,9 +67,10 @@ Tokta has no server.
 
 - **Sign-ins** stay on your Mac. Each account's web session is kept in its own separate WebKit store. Codex, Grok and Antigravity use the sign-in of their official apps or CLIs.
 - **Usage numbers and settings** are stored locally on your Mac.
-- **iCloud sync** (for the iPhone app) uploads only account names, plans, remaining percentages and reset times to your own private iCloud database. Sign-in data is never uploaded.
+- **iCloud sync** uploads the widget snapshot to your own private CloudKit database: local account IDs, service and account names, group IDs/names, plans, remaining percentages, limit/reset and observation times, recommendations, status/mood, appearance and alert thresholds, and notification titles, bodies and scheduled times. Renewal notifications can contain subscription prices, currencies and billing cycles. Cookies, tokens, login email fields, raw API responses and full usage history are not included. Names you enter can themselves contain personal information.
+- **Sync is automatic** in Mac builds with the iCloud entitlement when iCloud is available; an iPhone does not need to be connected. It runs when visible data changes or after ten minutes on the next publish. Choosing Mac-only notifications changes where alerts are delivered; it does not disable sync or remove notification text from the snapshot. There is currently no in-app sync-off switch.
 
-Removing an account also deletes its sign-in cookies and cache.
+Removing an account closes its Tokta windows and waits for Tokta's sign-in and usage tasks before deleting its web cookies/cache or dedicated CLI login folder. If cleanup fails, the account stays listed with an error so you can retry deletion in Settings. System logins owned by other apps are preserved. Close terminals opened for that account before deleting it: Tokta cannot stop a CLI you are running independently or revoke sessions on the service. iCloud is updated on the next successful upload; an offline device can still display its previous snapshot.
 
 ## Build from source
 
@@ -109,7 +110,7 @@ Issues and pull requests are welcome, especially:
 
 Tokta is an independent project. It is not affiliated with, endorsed by or sponsored by Anthropic, OpenAI, xAI, Anysphere (Cursor) or Google. Tokta reads usage through unofficial paths that may stop working at any time. Make sure your use complies with each service's terms.
 
-The service logos in `Tokta/Assets.xcassets` are trademarks of their respective owners and are not covered by the MIT License.
+The service logos in `Tokta/Assets.xcassets` are trademarks of their respective owners. Their source, modifications and separate MIT copyright notice are in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md); Tokta’s license does not grant trademark rights.
 
 ## License
 

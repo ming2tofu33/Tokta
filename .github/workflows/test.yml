@@ -10,6 +10,9 @@ concurrency:
   group: test-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   mac:
     runs-on: macos-26
@@ -29,9 +32,10 @@ jobs:
       # The tests check Korean text, so they run in Korean.
       - name: Test
         run: |
+          set -o pipefail
           xcodebuild test \
             -project Tokta.xcodeproj -scheme Tokta -destination 'platform=macOS' \
             -testLanguage ko -testRegion KR \
             CODE_SIGN_IDENTITY=- CODE_SIGN_STYLE=Manual DEVELOPMENT_TEAM= \
-            | tee xcodebuild.log | grep -E "error:|✘|Test run with|\*\* TEST" || true
+            | tee xcodebuild.log
           grep -q "\*\* TEST SUCCEEDED \*\*" xcodebuild.log

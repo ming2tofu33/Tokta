@@ -13,14 +13,22 @@ final class LoginWindowController: NSObject, NSWindowDelegate, WKNavigationDeleg
     private let webView: WKWebView
     private var polling: Task<Void, Never>?
     private let state = LoginViewState()
-    private var isChecking = false
+    private var checking: Task<Void, Never>?
+    private var isClosed = false
 
     static func show(for account: Account, store: UsageStore) {
-        guard let site = WebLoginSite(account.service) else { return }
+        guard store.canUse(account.id), let site = WebLoginSite(account.service) else { return }
         let controller = openWindows[account.id] ?? LoginWindowController(account: account, site: site, store: store)
         openWindows[account.id] = controller
         controller.window.makeKeyAndOrderFront(nil)
         NSApp.activate()
+    }
+
+    static func closeAndWait(for id: Account.ID) async {
+        guard let controller = openWindows[id] else { return }
+        let checking = controller.checking
+        controller.window.close()
+        await checking?.value
     }
 
     private init(account: Account, site: WebLoginSite, store: UsageStore) {
@@ -53,22 +61,26 @@ final class LoginWindowController: NSObject, NSWindowDelegate, WKNavigationDeleg
         polling = Task { [weak self] in
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(4))
-                await self?.checkLogin()
+                guard !Task.isCancelled else { return }
+                self?.checkLogin()
             }
         }
     }
 
-    private func checkLogin() async {
-        guard !isChecking, let url = webView.url, site.isPastLogin(url) else { return }
-        isChecking = true
-        defer { isChecking = false }
-        guard let snapshot = try? await site.read(account.id) else { return }
-        store.record(snapshot, for: account.id)
-        window.close()
+    private func checkLogin() {
+        guard !isClosed, checking == nil, store.canUse(account.id),
+              let url = webView.url, site.isPastLogin(url) else { return }
+        checking = Task {
+            defer { checking = nil }
+            guard let snapshot = try? await site.read(account.id), !Task.isCancelled,
+                  !isClosed, store.canUse(account.id) else { return }
+            store.record(snapshot, for: account.id)
+            window.close()
+        }
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        Task { await checkLogin() }
+        checkLogin()
     }
 
     /// Google 로그인 페이지로 넘어가는 순간 안내를 띄우고, 다른 곳으로 가면 내린다.
@@ -83,11 +95,19 @@ final class LoginWindowController: NSObject, NSWindowDelegate, WKNavigationDeleg
 
     /// 새 창으로 여는 로그인 단계도 같은 창에서 이어서 연다.
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if navigationAction.targetFrame == nil { webView.load(navigationAction.request) }
+        if navigationAction.targetFrame == nil, let url = navigationAction.request.url,
+           WebURLPolicy.allowsExternal(url) { webView.load(navigationAction.request) }
         return nil
     }
 
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping @MainActor (WKNavigationActionPolicy) -> Void) {
+        decisionHandler(navigationAction.request.url.map(WebURLPolicy.allowsNavigation) == true ? .allow : .cancel)
+    }
+
     func windowWillClose(_ notification: Notification) {
+        isClosed = true
+        checking?.cancel()
+        window.contentView = nil
         polling?.cancel()
         webView.stopLoading()
         Self.openWindows[account.id] = nil

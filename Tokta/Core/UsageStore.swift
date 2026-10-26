@@ -13,6 +13,14 @@ final class UsageStore {
     /// 진행 중인 ChatGPT 로그인 주소. 시크릿 창에서 다른 계정으로 로그인할 수 있게 복사해 준다.
     private(set) var loginURLs: [Account.ID: URL] = [:]
     private(set) var isRefreshing = false
+    private(set) var deleting: Set<Account.ID> = []
+    private var deletionFailures: Set<Account.ID> = []
+    @ObservationIgnored private var reads: [Account.ID: Task<UsageSnapshot, any Error>] = [:]
+    @ObservationIgnored private let removeCredentials: @MainActor (Account) async throws -> Void
+
+    func canUse(_ id: Account.ID) -> Bool {
+        accounts.contains { $0.id == id } && !deleting.contains(id) && !deletionFailures.contains(id)
+    }
     private(set) var alertSettings = AlertSettings()
     private(set) var lastRefresh: Date?
     /// 계정 × 구간별 사용 기록. 추이 그래프와 소진 예측에 쓴다.
@@ -43,7 +51,8 @@ final class UsageStore {
         URL.applicationSupportDirectory.appending(path: "Tokta", directoryHint: .isDirectory)
     }
 
-    init(registry: ProviderRegistry = .live, directory: URL = UsageStore.defaultDirectory, notifier: (any AlertDelivering)? = nil) {
+    init(registry: ProviderRegistry = .live, directory: URL = UsageStore.defaultDirectory, notifier: (any AlertDelivering)? = nil, removeCredentials: @escaping @MainActor (Account) async throws -> Void = UsageStore.deleteCredentials) {
+        self.removeCredentials = removeCredentials
         self.registry = registry
         self.notifier = notifier
         alertsURL = directory.appending(path: "alerts.json")
@@ -253,7 +262,7 @@ final class UsageStore {
     }
 
     /// 오류가 붙은 계정. 마지막 값이 남아 있어도 추천하지 않는다.
-    private var unavailableAccountIDs: Set<Account.ID> { Set(errors.keys) }
+    private var unavailableAccountIDs: Set<Account.ID> { Set(errors.keys).union(deleting).union(deletionFailures) }
 
     var activeServices: [Service] {
         Service.allCases.filter { service in accounts.contains { $0.service == service } }
@@ -274,32 +283,71 @@ final class UsageStore {
         Task { await refresh(account) }
     }
 
-    func remove(_ id: Account.ID) {
-        if cardPin == .account(id) { cardPin = nil }
-        let account = accounts.first { $0.id == id }
-        // Grok Bot을 지우면 다시 만들지 않게 Cursor 계정에 적어 두고, Cursor를 지우면 딸린 Grok Bot도 지운다.
-        if account?.service == .grokBot, let cursorID = account?.linkedAccountID,
+    /// Keep the account until every credential store has been removed. Failure is visible and retryable.
+    @discardableResult
+    func remove(_ id: Account.ID) async -> Bool {
+        guard let account = accounts.first(where: { $0.id == id }) else { return true }
+        let targets = accounts.filter { $0.id == id || $0.linkedAccountID == id }
+        let ids = Set(targets.map(\.id))
+        guard deleting.isDisjoint(with: ids) else { return false }
+        deleting.formUnion(ids)
+        defer { deleting.subtract(ids) }
+        do {
+            for target in targets {
+                AccountWindowController.close(for: target.id)
+                try await CodexLogin.stop(for: target.id, store: self)
+                try await GrokLogin.stop(for: target.id, store: self)
+                await LoginWindowController.closeAndWait(for: target.id)
+                if let read = reads[target.id] {
+                    read.cancel()
+                    _ = await read.result
+                }
+            }
+            for target in targets { try await removeCredentials(target) }
+        } catch {
+            deletionFailures.formUnion(ids)
+            for id in ids {
+                errors[id] = String(localized: "로그인 정보를 지우지 못했습니다. 계정 삭제를 다시 시도하세요.")
+            }
+            onChange?()
+            return false
+        }
+        if account.service == .grokBot, let cursorID = account.linkedAccountID,
            let index = accounts.firstIndex(where: { $0.id == cursorID }) {
             accounts[index].hidesGrokBot = true
         }
-        for linked in accounts where linked.linkedAccountID == id { remove(linked.id) }
-        accounts.removeAll { $0.id == id }
-        snapshots[id] = nil
-        errors[id] = nil
-        save()
-        history.remove(account: id)
-        ledger.remove(account: id)
-        historyChanged = true
-        deliver([.cancel(id: AlertPlanner.renewalID(id))])
-        if let removed = account, !removed.usesSystemLogin {
-            switch removed.service {
-            case .chatgpt: CodexHomes.remove(for: id)
-            case .grok: GrokHomes.remove(for: id)
-            case .claude, .cursor, .grokBot, .antigravity: break
-            }
+        if case .account(let pinned) = cardPin, ids.contains(pinned) { cardPin = nil }
+        accounts.removeAll { ids.contains($0.id) }
+        deletionFailures.subtract(ids)
+        for id in ids {
+            snapshots[id] = nil
+            errors[id] = nil
+            loginURLs[id] = nil
+            loggingIn.remove(id)
+            history.remove(account: id)
+            ledger.remove(account: id)
+            let alertIDs = scheduledAlerts.keys.filter { $0.contains(id.uuidString) }
+            for alertID in alertIDs { deliver([.cancel(id: alertID)]) }
+            recentAlerts.removeAll { $0.id.contains(id.uuidString) }
         }
+        save()
+        historyChanged = true
         evaluateAlerts()
-        Task { await WebSessions.remove(id) }
+        return true
+    }
+
+    static func deleteCredentials(for account: Account) async throws {
+        switch account.service {
+        case .claude, .cursor:
+            try await WebSessions.remove(account.id)
+        case .chatgpt where !account.usesSystemLogin:
+            try CodexHomes.remove(for: account.id)
+        case .grok where !account.usesSystemLogin:
+            try GrokHomes.remove(for: account.id)
+        default: break // Shared/system logins belong to the official app, never delete them.
+        }
+        let script = defaultDirectory.appending(path: "launch/\(account.id.uuidString).command")
+        if FileManager.default.fileExists(atPath: script.path) { try FileManager.default.removeItem(at: script) }
     }
 
     /// Cursor 계정에 Grok Bot 한도가 있으면 Grok Bot 계정을 하나 만든다. 이름·그룹은 Cursor 계정을 따른다.
@@ -399,20 +447,23 @@ final class UsageStore {
     }
 
     func setLoginURL(_ url: URL?, for id: Account.ID) {
+        guard url == nil || canUse(id) else { return }
         loginURLs[id] = url
     }
 
     func setLoggingIn(_ id: Account.ID, _ active: Bool) {
+        guard !active || canUse(id) else { return }
         if active { loggingIn.insert(id) } else { loggingIn.remove(id) }
     }
 
     func reportError(_ message: String, for id: Account.ID) {
-        guard accounts.contains(where: { $0.id == id }) else { return }
+        guard canUse(id) else { return }
         errors[id] = message
     }
 
     /// 로그인 창에서 바로 읽어온 값을 반영한다. 이메일을 적지 않은 계정은 이 로그인 계정에 묶는다.
     func record(_ snapshot: UsageSnapshot, for id: Account.ID) {
+        guard canUse(id) else { return }
         if let index = accounts.firstIndex(where: { $0.id == id }), accounts[index].email == nil, let email = snapshot.loginEmail {
             accounts[index].email = email
             save()
@@ -438,29 +489,33 @@ final class UsageStore {
             isRefreshing = false
             lastRefresh = .now
         }
-        await withTaskGroup(of: (Account.ID, Result<UsageSnapshot, any Error>).self) { group in
-            for account in accounts {
-                guard let provider = registry.provider(for: account.service) else {
-                    errors[account.id] = UsageError.notSupported.localizedDescription
-                    continue
-                }
-                group.addTask {
-                    do { return (account.id, .success(try await provider.fetchUsage(for: account))) }
-                    catch { return (account.id, .failure(error)) }
-                }
+        await withTaskGroup(of: Void.self) { group in
+            for account in accounts where canUse(account.id) {
+                group.addTask { await self.refresh(account) }
             }
-            for await (id, result) in group { apply(result, to: id) }
         }
         evaluateAlerts()
     }
 
     func refresh(_ account: Account) async {
+        guard canUse(account.id) else { return }
+        // One read per account; deletion waits for it before touching credentials.
+        if let read = reads[account.id] {
+            apply(await read.result, to: account.id)
+            return
+        }
         guard let provider = registry.provider(for: account.service) else {
             errors[account.id] = UsageError.notSupported.localizedDescription
             return
         }
-        do { apply(.success(try await provider.fetchUsage(for: account)), to: account.id) }
-        catch { apply(.failure(error), to: account.id) }
+        let read = Task {
+            try Task.checkCancellation()
+            return try await provider.fetchUsage(for: account)
+        }
+        reads[account.id] = read
+        let result = await read.result
+        reads[account.id] = nil
+        apply(result, to: account.id)
         evaluateAlerts()
     }
 
@@ -505,7 +560,7 @@ final class UsageStore {
 
     /// 실패해도 마지막으로 읽은 값은 남겨두고 오류만 표시한다.
     private func apply(_ result: Result<UsageSnapshot, any Error>, to id: Account.ID) {
-        guard let account = accounts.first(where: { $0.id == id }) else { return }
+        guard canUse(id), let account = accounts.first(where: { $0.id == id }) else { return }
         switch result {
         case .success(let snapshot):
             // 다른 계정의 사용량을 이 별칭에 붙이지 않는다.
@@ -516,6 +571,12 @@ final class UsageStore {
             }
             snapshots[id] = snapshot
             errors[id] = duplicateWarning(for: account, loginEmail: snapshot.loginEmail)
+            // Reads finish in any order: an earlier account can reveal a duplicate already read.
+            for other in accounts where other.id != id && errors[other.id] == nil && canUse(other.id) {
+                if let email = snapshots[other.id]?.loginEmail {
+                    errors[other.id] = duplicateWarning(for: other, loginEmail: email)
+                }
+            }
             if snapshot.hasGrokBot == true { addGrokBotIfNeeded(for: account) }
             let before = (history, ledger)
             history.record(snapshot, for: id)

@@ -92,7 +92,18 @@ final class ChildProcess: @unchecked Sendable {
             Task { [weak self] in
                 try? await Task.sleep(for: timeout)
                 self?.terminate()
+                try? await self?.waitForExit()
             }
+        }
+    }
+
+    func waitForExit() async throws {
+        let deadline = Date.now.addingTimeInterval(5)
+        while process.isRunning {
+            // This is our child process. Never report cleanup complete while it can still write credentials.
+            if Date.now >= deadline { kill(process.processIdentifier, SIGKILL) }
+            // Cleanup must finish even when the caller's task has been cancelled.
+            await Task.detached { try? await Task.sleep(for: .milliseconds(50)) }.value
         }
     }
 
@@ -123,6 +134,7 @@ final class JSONLineProcess: @unchecked Sendable {
         Task { [weak self] in
             try? await Task.sleep(for: timeout)
             self?.terminate()
+            try? await self?.waitForExit()
         }
     }
 
@@ -154,6 +166,16 @@ final class JSONLineProcess: @unchecked Sendable {
 
     func notify(_ method: String) throws {
         try send(["method": method])
+    }
+
+    func waitForExit() async throws {
+        let deadline = Date.now.addingTimeInterval(5)
+        while process.isRunning {
+            // This is our child process. Never report cleanup complete while it can still write credentials.
+            if Date.now >= deadline { kill(process.processIdentifier, SIGKILL) }
+            // Cleanup must finish even when the caller's task has been cancelled.
+            await Task.detached { try? await Task.sleep(for: .milliseconds(50)) }.value
+        }
     }
 
     func terminate() {

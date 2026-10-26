@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A100000000000000000000C2 /* THIRD_PARTY_NOTICES.md in Resources */ = {isa = PBXBuildFile; fileRef = A100000000000000000000C1 /* THIRD_PARTY_NOTICES.md */; };
+		A100000000000000000000C4 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = A100000000000000000000C3 /* LICENSE */; };
 		A10000000000000000000080 /* ToktaPhoneWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A10000000000000000000090 /* ToktaPhoneWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A10000000000000000000061 /* ToktaWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A10000000000000000000050 /* ToktaWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -61,6 +63,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A100000000000000000000C1 /* THIRD_PARTY_NOTICES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = THIRD_PARTY_NOTICES.md; sourceTree = "<group>"; };
+		A100000000000000000000C3 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		A10000000000000000000070 /* ToktaPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToktaPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000090 /* ToktaPhoneWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ToktaPhoneWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000011 /* Tokta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tokta.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +143,8 @@
 		A10000000000000000000002 = {
 			isa = PBXGroup;
 			children = (
+				A100000000000000000000C1 /* THIRD_PARTY_NOTICES.md */,
+				A100000000000000000000C3 /* LICENSE */,
 				A100000000000000000000C0 /* Tokta.xcconfig */,
 				A10000000000000000000012 /* Tokta */,
 				A10000000000000000000052 /* Shared */,
@@ -344,6 +350,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A100000000000000000000C2 /* THIRD_PARTY_NOTICES.md in Resources */,
+				A100000000000000000000C4 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

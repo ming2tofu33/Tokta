@@ -23,6 +23,7 @@ enum AccountOpen {
     }
 
     static func open(_ account: Account, store: UsageStore) {
+        guard store.canUse(account.id) else { return }
         store.noteOpened(account)
         do {
             switch account.service {

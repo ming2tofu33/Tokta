@@ -4,6 +4,7 @@ import Foundation
 @MainActor
 enum AccountLogin {
     static func start(for account: Account, store: UsageStore) {
+        guard store.canUse(account.id) else { return }
         switch account.service {
         case .chatgpt: CodexLogin.start(for: account, store: store)
         case .claude, .cursor: LoginWindowController.show(for: account, store: store)

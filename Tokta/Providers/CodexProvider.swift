@@ -23,8 +23,13 @@ struct CodexProvider: UsageProvider {
             let limits = try await rpc.request("account/rateLimits/read")
             var snapshot = UsageSnapshot(windows: try Self.windows(from: limits), plan: user.planType?.capitalized, observedAt: .now, loginEmail: user.email)
             snapshot.limitResetsLeft = Self.limitResetsLeft(from: limits)
+            rpc.terminate()
+            try await rpc.waitForExit()
             return snapshot
-        } catch let error as JSONLineProcess.RPCError {
+        } catch {
+            rpc.terminate()
+            try await rpc.waitForExit()
+            guard let error = error as? JSONLineProcess.RPCError else { throw error }
             switch error {
             case .closed: throw UsageError.failed(String(localized: "Codex가 응답하지 않습니다. 버전과 로그인 상태를 확인하세요"))
             case .failed(let method): throw UsageError.failed(String(localized: "Codex 조회에 실패했습니다 (\(method))"))

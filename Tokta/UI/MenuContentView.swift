@@ -12,8 +12,8 @@ struct MenuContentView: View {
             let pick = store.nowPick()
             if let pick {
                 NowCard(pick: pick)
-                    .padding(.horizontal, 10)
-                    .padding(.top, 10)
+                    .padding(.horizontal, Layout.inset)
+                    .padding(.top, Layout.inset)
             }
             if store.accounts.isEmpty {
                 emptyState
@@ -57,7 +57,7 @@ struct MenuContentView: View {
             .disabled(store.isRefreshing)
             .help("지금 새로고침")
         }
-        .padding(.horizontal, 12)
+        .padding(.horizontal, Layout.contentEdge)
         .padding(.vertical, 10)
     }
 
@@ -80,12 +80,12 @@ struct MenuContentView: View {
                 Text("모든 계정")
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.secondary)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, Layout.padding)
             }
             ForEach(store.sections) { SectionView(section: $0, titled: titled) }
         }
-        .padding(.horizontal, 8)
-        .padding(.vertical, 10)
+        .padding(.horizontal, Layout.inset)
+        .padding(.vertical, Layout.padding)
     }
 
     private var emptyState: some View {
@@ -126,7 +126,7 @@ struct MenuContentView: View {
         }
         .font(.callout)
         .buttonStyle(.borderless)
-        .padding(.horizontal, 12)
+        .padding(.horizontal, Layout.contentEdge)
         .padding(.vertical, 8)
     }
 }
@@ -143,7 +143,7 @@ private struct SectionView: View {
             Text(section.title)
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(titled ? .tertiary : .secondary)
-                .padding(.horizontal, 8)
+                .padding(.horizontal, Layout.padding)
                 .padding(.bottom, 2)
             ForEach(section.accounts) { account in
                 AccountRow(

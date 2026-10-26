@@ -79,9 +79,9 @@ struct AccountRow: View {
             }
             if isExpanded { details(now: now) }
         }
-        .padding(.horizontal, 8)
-        .padding(.vertical, 5)
-        .background(background, in: RoundedRectangle(cornerRadius: 6))
+        .padding(.horizontal, Layout.padding)
+        .padding(.vertical, 6)
+        .background(background, in: RoundedRectangle(cornerRadius: Layout.rowRadius, style: .continuous))
         .onHover { isHovering = $0 }
         .motion(.easeOut(duration: 0.15), value: isHovering)
     }
@@ -112,7 +112,7 @@ struct AccountRow: View {
                 Group {
                     MiniBars(windows: snapshot.windows, settings: alertSettings)
                     Text("\(Int((summary.remaining * 100).rounded()))%")
-                        .font(.callout.monospacedDigit())
+                        .font(.usageNumber(13))
                         .foregroundStyle(palette.textStyle(for: summary.level))
                         .rollingNumber(summary.remaining)
                         .frame(width: 36, alignment: .trailing)

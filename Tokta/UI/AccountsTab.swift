@@ -174,7 +174,8 @@ struct AccountsTab: View {
             }
             Text(snapshot.map { AgeText.string(since: $0.observedAt, now: now) } ?? "—")
                 .font(.caption)
-                .foregroundStyle(stale ? Color.orange : Color.secondary)
+                // 방금 읽은 값이면 흐리게, 오래됐을 때만 눈에 띄게.
+                .foregroundStyle(stale ? AnyShapeStyle(Color.orange) : AnyShapeStyle(.tertiary))
                 .frame(width: 70, alignment: .leading)
             action(account, error: error, stale: stale)
                 .frame(width: 110, alignment: .trailing)
@@ -196,7 +197,7 @@ struct AccountsTab: View {
             VStack(alignment: .leading, spacing: 3) {
                 HStack(spacing: 4) {
                     Text("\(Int((window.remaining * 100).rounded()))%")
-                        .font(.callout.weight(.semibold).monospacedDigit())
+                        .font(.usageNumber(14, weight: .bold))
                         .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: window.remaining, settings: store.alertSettings)))
                         .rollingNumber(window.remaining)
                     Text(stale ? String(localized: "· 이전 값") : window.resetsAt.map { "· " + ResetText.string(until: $0, now: now) } ?? "")

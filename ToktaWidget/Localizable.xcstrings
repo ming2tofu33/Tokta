@@ -394,7 +394,8 @@
             "value": "Muted signal"
           }
         }
-      }
+      },
+      "extractionState": "stale"
     },
     "쿨에서 웜으로": {
       "localizations": {
@@ -404,7 +405,8 @@
             "value": "Cool to warm"
           }
         }
-      }
+      },
+      "extractionState": "stale"
     },
     "회사": {
       "localizations": {
@@ -502,6 +504,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Check needed"
+          }
+        }
+      }
+    },
+    "세이지": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sage"
+          }
+        }
+      }
+    },
+    "틸": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teal"
           }
         }
       }

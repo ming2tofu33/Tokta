@@ -407,7 +407,8 @@
             "value": "Muted signal"
           }
         }
-      }
+      },
+      "extractionState": "stale"
     },
     "추정": {
       "localizations": {
@@ -427,7 +428,8 @@
             "value": "Cool to warm"
           }
         }
-      }
+      },
+      "extractionState": "stale"
     },
     "한도": {
       "localizations": {
@@ -545,6 +547,26 @@
           "stringUnit": {
             "state": "translated",
             "value": "Check needed"
+          }
+        }
+      }
+    },
+    "세이지": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sage"
+          }
+        }
+      }
+    },
+    "틸": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Teal"
           }
         }
       }

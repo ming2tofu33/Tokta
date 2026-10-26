@@ -24,8 +24,8 @@ struct NowCard: View {
                 }
             }
         }
-        .padding(12)
-        .card(radius: 14, tint: palette.color(for: .plenty))
+        .padding(Layout.padding)
+        .card(radius: Layout.cardRadius, tint: palette.color(for: .plenty))
         // 다른 계정으로 바뀌면 부드럽게 넘어간다.
         .motion(value: pick.primary.id)
     }
@@ -44,7 +44,7 @@ struct NowCard: View {
                 )
                 .frame(width: 48, height: 48)
                 Text(pick.primaryRemaining.map { "\(percent($0))%" } ?? "–")
-                    .font(.system(size: 15, weight: .semibold, design: .rounded).monospacedDigit())
+                    .font(.usageNumber(20, weight: .bold))
                     .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: remaining, settings: store.alertSettings)))
                     .rollingNumber(remaining)
             }
@@ -91,7 +91,8 @@ struct NowCard: View {
             case .refillsIn?, .exhausted?, .stale?:
                 Text(summary.notice!.text).font(.caption).foregroundStyle(.secondary)
             case nil:
-                Text("\(AgeText.string(since: snapshot.observedAt, now: now)) 확인").font(.caption2).foregroundStyle(.tertiary)
+                // 평소에는 줄을 더하지 않는다. 확인 시각은 메뉴 머리줄에 있다.
+                EmptyView()
             }
         } else {
             Text("아직 못 읽었어요").font(.caption).foregroundStyle(.secondary)
@@ -116,6 +117,8 @@ struct NowCard: View {
                     HStack(spacing: 4) {
                         Text(window.title.isEmpty ? String(localized: "한도") : window.title)
                         Text("\(percent(window.remaining))% 남음")
+                            .fontDesign(.rounded)
+                            .fontWeight(.semibold)
                             .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: window.remaining, settings: store.alertSettings)))
                             .rollingNumber(window.remaining)
                         if let resetsAt = window.resetsAt {
@@ -247,7 +250,7 @@ private struct SuggestionBackground: ViewModifier {
     let tint: Color
 
     func body(content: Content) -> some View {
-        let shape = RoundedRectangle(cornerRadius: 8, style: .continuous)
+        let shape = RoundedRectangle(cornerRadius: Layout.rowRadius, style: .continuous)
         if #available(macOS 26, *) {
             content.glassEffect(.regular.tint(tint.opacity(0.18)).interactive(), in: shape)
         } else {
@@ -281,7 +284,7 @@ private struct OtherServiceLine: View {
             Spacer()
             if let remaining = line.remaining {
                 Text("\(percent(remaining))%")
-                    .font(.caption.monospacedDigit())
+                    .font(.usageNumber(11))
                     .foregroundStyle(palette.textStyle(for: StatusLevel(remaining: remaining, settings: settings)))
                     .rollingNumber(remaining)
                 Image(systemName: "arrow.up.right").font(.caption2).foregroundStyle(.tertiary)
@@ -290,7 +293,7 @@ private struct OtherServiceLine: View {
         }
         .padding(.horizontal, 4)
         .padding(.vertical, 3)
-        .background(isHovering && line.account != nil ? AnyShapeStyle(.quaternary.opacity(0.6)) : AnyShapeStyle(.clear), in: RoundedRectangle(cornerRadius: 5))
+        .background(isHovering && line.account != nil ? AnyShapeStyle(.quaternary.opacity(0.6)) : AnyShapeStyle(.clear), in: RoundedRectangle(cornerRadius: Layout.smallRadius, style: .continuous))
         .contentShape(Rectangle())
         .onHover { isHovering = $0 }
         .motion(.easeOut(duration: 0.15), value: isHovering)

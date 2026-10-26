@@ -5,9 +5,10 @@ import SwiftUI
 enum UsagePalette: String, CaseIterable, Identifiable, Codable, Sendable {
     /// 평소에는 인디고 하나(여유 있으면 진하게, 줄면 연하게), 알림 기준선 아래만 코랄·로즈.
     case indigo
-    /// 신호등 순서 그대로, 채도만 낮춘 세이지·샌드·테라코타·크림슨.
+    /// 평소에는 세이지 하나(여유 있으면 진하게, 줄면 연하게), 알림 기준선 아래만 테라코타·크림슨.
+    /// rawValue는 예전 이름(차분한 신호등) 그대로 — 고른 설정이 유지되게.
     case signal
-    /// 여유 있으면 차가운 색, 줄수록 따뜻한 색. 틸·스카이·앰버·코랄.
+    /// 평소에는 틸 하나, 알림 기준선 아래만 앰버·코랄. rawValue는 예전 이름(쿨에서 웜으로) 그대로.
     case coolWarm
     /// 평소에는 회색, 알림 기준선 아래만 코랄·로즈.
     case graphite
@@ -19,18 +20,19 @@ enum UsagePalette: String, CaseIterable, Identifiable, Codable, Sendable {
     var title: String {
         switch self {
         case .indigo: String(localized: "인디고")
-        case .signal: String(localized: "차분한 신호등")
-        case .coolWarm: String(localized: "쿨에서 웜으로")
+        case .signal: String(localized: "세이지")
+        case .coolWarm: String(localized: "틸")
         case .graphite: String(localized: "그래파이트")
         }
     }
 
     /// 여유, 보통, 알림 기준선 아래, 위험 기준선 아래. (라이트, 다크)
+    /// 평소(여유·보통)는 한 가지 색의 진하고 연한 두 단계, 경고만 다른 색(2026-10-26 색 줄이기).
     private var hexes: [(UInt32, UInt32)] {
         switch self {
         case .indigo: [(0x6366F1, 0x8B8FF8), (0xA5A8F5, 0x5559B0), (0xF0803C, 0xF59152), (0xE5484D, 0xF2555A)]
-        case .signal: [(0x5FAF8E, 0x6CC29E), (0xD4B062, 0xC9A85E), (0xDE7E58, 0xE58A66), (0xCF4B4B, 0xE05A5A)]
-        case .coolWarm: [(0x14B8A6, 0x2DD4BF), (0x60A5FA, 0x4F8FE0), (0xF59E0B, 0xFBBF24), (0xF2555A, 0xF87171)]
+        case .signal: [(0x5FAF8E, 0x6CC29E), (0xA9D5C2, 0x3E7A62), (0xDE7E58, 0xE58A66), (0xCF4B4B, 0xE05A5A)]
+        case .coolWarm: [(0x14B8A6, 0x2DD4BF), (0x8ADDD3, 0x1F7F74), (0xF59E0B, 0xFBBF24), (0xF2555A, 0xF87171)]
         case .graphite: [(0x6B7280, 0xA1A6B0), (0xA9AEB8, 0x5F6470), (0xF0803C, 0xF59152), (0xE5484D, 0xF2555A)]
         }
     }

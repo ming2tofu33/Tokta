@@ -47,6 +47,24 @@ struct ServiceBadge: View {
     }
 }
 
+/// 간격과 모서리. 메뉴는 바깥 여백 8, 내용 시작선 20(바깥 8 + 안쪽 12)에 맞춘다.
+/// 모서리는 카드 14 · 카드 안 줄과 버튼 8 · 작은 칸 6으로, 안쪽이 바깥보다 작게.
+enum Layout {
+    static let inset: CGFloat = 8
+    static let padding: CGFloat = 12
+    static let contentEdge: CGFloat = inset + padding
+    static let cardRadius: CGFloat = 14
+    static let rowRadius: CGFloat = 8
+    static let smallRadius: CGFloat = 6
+}
+
+extension Font {
+    /// 남은 % 같은 숫자. 둥근 글꼴에 자릿수 폭을 맞춰서 바뀌어도 흔들리지 않는다.
+    static func usageNumber(_ size: CGFloat, weight: Font.Weight = .semibold) -> Font {
+        .system(size: size, weight: weight, design: .rounded).monospacedDigit()
+    }
+}
+
 /// 카드. macOS 26부터는 Liquid Glass, 그 전에는 흰(다크에선 짙은) 판.
 struct CardBackground: ViewModifier {
     var radius: CGFloat = 14
